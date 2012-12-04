@@ -42,6 +42,7 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
                                 emacs
                                 vim
                                 git
+                                mosh
                              ];
   environment.enableBashCompletion = true;
 }
