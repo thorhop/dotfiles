@@ -4,8 +4,12 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
 {
   require = [ "${modulesPath}/virtualisation/amazon-image.nix" ];
 
+  fileSystems = [ { mountPoint = "/mnt/irc-vol";
+                    device = "/dev/disk/by-label/irc-vol";
+                  } ];
+
   users.extraUsers = { root = { openssh.authorizedKeys.keyFiles = sshKeyFiles; };
-  		       aristid = { createUser = true;
+                       aristid = { createUser = true;
 		       	       	   createHome = true;
 				   description = "Aristid Breitkreuz";
 				   group = "users";
@@ -29,6 +33,6 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
 		       ports = [ 22023 ];
   		     };
 
-  environment.systemPackages = with pkgs; [ screen jre emacs vim git ];
+  environment.systemPackages = with pkgs; [ which screen jre emacs vim git ];
   environment.enableBashCompletion = true;
 }
