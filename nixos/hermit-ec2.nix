@@ -4,6 +4,8 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
 {
   require = [ "${modulesPath}/virtualisation/amazon-image.nix" ];
 
+  ec2.metadata = true;
+
   fileSystems = [ { mountPoint = "/mnt/irc-vol";
                     label = "irc-vol";
                   } ];
