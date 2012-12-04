@@ -33,6 +33,15 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
                        ports = [ 22023 ];
   		     };
 
-  environment.systemPackages = with pkgs; [ which screen jre emacs vim git ];
+  environment.systemPackages = with pkgs;
+                             [
+                                file
+                                wget
+                                screen
+                                jre
+                                emacs
+                                vim
+                                git
+                             ];
   environment.enableBashCompletion = true;
 }
