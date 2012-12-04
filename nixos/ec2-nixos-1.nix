@@ -10,8 +10,7 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
 
   services.openssh = { enable = true;
   		       passwordAuthentication = false;
-		       permitRootLogin = "without-password";
-		       #ports = [ 22 ];
+		       ports = [ 22023 ];
   		     };
 
   environment.systemPackages = with pkgs; [ screen jre emacs vim ];
