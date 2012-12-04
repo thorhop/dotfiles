@@ -35,6 +35,8 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
                        ports = [ 22023 ];
   		     };
 
+  services.locate = { enable = true; };
+
   environment.systemPackages = with pkgs;
                              [
                                 file
