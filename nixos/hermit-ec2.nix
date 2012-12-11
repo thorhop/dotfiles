@@ -10,6 +10,8 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
                     label = "irc-vol";
                   } ];
 
+  swapDevices = [ { device = "/disk0/swapfile"; size = 1024; } ];
+
   users.extraUsers = { root = { openssh.authorizedKeys.keyFiles = sshKeyFiles; };
                        aristid = { createUser = true;
                                	   createHome = true;
