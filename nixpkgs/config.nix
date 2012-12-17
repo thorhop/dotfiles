@@ -26,8 +26,8 @@ pkgs : {
     };
 
     envGhc74Darwin = pkgs.myEnvFun {
-      name = "env-ghc74-darwin";
-      buildInputs = [ghc74Darwin];
+      name = "ghc74-darwin";
+      buildInputs = [ pkgs.stdenv ghc74Darwin.all ];
     };
   };
 }
