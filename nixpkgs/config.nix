@@ -1,7 +1,7 @@
 pkgs : {
-  packageOverrides = self : {
+  packageOverrides = pkgs : {
     ghc74Darwin = {
-      all = self.haskellPackages_ghc742.ghcWithPackages (self : with self; [
+      all = pkgs.haskellPackages_ghc742.ghcWithPackages (self : with self; [
 #          HTTP HUnit QuickCheck async cgi fgl
 #          haskellSrc html network parallel parsec primitive
 #          regexBase regexCompat regexPosix
@@ -23,6 +23,11 @@ pkgs : {
           cryptohash
           xmlConduit
       ]);
+    };
+
+    envGhc74Darwin = pkgs.myEnvFun {
+      name = "env-ghc74-darwin";
+      buildInputs = [pkgs.ghc74Darwin];
     };
   };
 }
