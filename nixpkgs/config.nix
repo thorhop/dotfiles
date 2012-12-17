@@ -1,5 +1,5 @@
 pkgs : {
-  packageOverrides = pkgs : {
+  packageOverrides = pkgs : rec {
     ghc74Darwin = {
       all = pkgs.haskellPackages_ghc742.ghcWithPackages (self : with self; [
 #          HTTP HUnit QuickCheck async cgi fgl
@@ -27,7 +27,7 @@ pkgs : {
 
     envGhc74Darwin = pkgs.myEnvFun {
       name = "env-ghc74-darwin";
-      buildInputs = [pkgs.ghc74Darwin];
+      buildInputs = [ghc74Darwin];
     };
   };
 }
