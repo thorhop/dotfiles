@@ -29,9 +29,35 @@ pkgs : {
           ]);
     };
 
+    ghc74Aws = pkgs.haskellPackages_ghc742.ghcWithPackages (self : with self;
+             [
+               cabalInstall
+               attempt
+               base64Bytestring
+               blazeBuilder
+               caseInsensitive
+               cereal
+               conduit
+               cryptoApi
+               cryptohash
+               httpConduit
+               httpTypes
+               liftedBase
+               monadControl
+               mtl
+               resourcet
+               utf8String
+               xmlConduit
+             ]);
+
     envGhc74Def = pkgs.myEnvFun {
-      name = "ghc74-darwin";
+      name = "ghc74-def";
       buildInputs = [ pkgs.stdenv ghc74Def.all ];
+    };
+
+    envGhc74Aws = pkgs.myEnvFun {
+      name = "ghc74-aws";
+      buildInputs = [ pkgs.stdenv ghc74Aws ];
     };
   };
 }
