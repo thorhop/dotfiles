@@ -11,7 +11,7 @@ pkgs : {
         [ hask.haskellPlatform ];
     in
   rec {
-    ghc74Darwin = {
+    ghc74Def = {
       all = pkgs.haskellPackages_ghc742.ghcWithPackages (self : with self; 
           pseudoHaskellPlatform self ++
           [
@@ -29,9 +29,9 @@ pkgs : {
           ]);
     };
 
-    envGhc74Darwin = pkgs.myEnvFun {
+    envGhc74Def = pkgs.myEnvFun {
       name = "ghc74-darwin";
-      buildInputs = [ pkgs.stdenv ghc74Darwin.all ];
+      buildInputs = [ pkgs.stdenv ghc74Def.all ];
     };
   };
 }
