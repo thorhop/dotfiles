@@ -59,5 +59,10 @@ pkgs : {
       name = "ghc74-aws";
       buildInputs = [ pkgs.stdenv ghc74Aws ];
     };
+
+    osxEnv = pkgs.buildEnv {
+      name = "osx-env";
+      paths = [ pkgs.nix envGhc74Def envGhc74Aws ];
+    };
   };
 }
