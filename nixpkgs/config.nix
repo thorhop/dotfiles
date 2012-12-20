@@ -9,27 +9,8 @@ pkgs : {
           cabalInstall alex happy ghc haddock ]
         else
         [ hask.haskellPlatform ];
-    in
-  rec {
-    ghc74Def = {
-      all = pkgs.haskellPackages_ghc742.ghcWithPackages (self : with self; 
-          pseudoHaskellPlatform self ++
-          [
-            criterion
-            testFramework
-            testFrameworkHunit
-            testFrameworkQuickcheck2
-            testFrameworkTh
-            hspec
-
-            httpConduit
-            attempt
-            cryptohash
-            xmlConduit
-          ]);
-    };
-
-    ghc74Aws = pkgs.haskellPackages_ghc742.ghcWithPackages (self : with self;
+        
+        ghcAws = hask : hask.ghcWithPackages (self : with self;
              [
                cabalInstall
                attempt
@@ -49,20 +30,40 @@ pkgs : {
                utf8String
                xmlConduit
              ]);
+    in
+  rec {
+    ghc74Def = pkgs.haskellPackages_ghc742.ghcWithPackages (self : with self; 
+          pseudoHaskellPlatform self ++
+          [
+            criterion
+            testFramework
+            testFrameworkHunit
+            testFrameworkQuickcheck2
+            testFrameworkTh
+            hspec
+          ]);
+
+    ghc74Aws = ghcAws pkgs.haskellPackages_ghc742;
+    ghc76Aws = ghcAws pkgs.haskellPackages_ghc761;
 
     envGhc74Def = pkgs.myEnvFun {
       name = "ghc74-def";
-      buildInputs = [ pkgs.stdenv ghc74Def.all ];
+      buildInputs = [ ghc74Def ];
     };
 
     envGhc74Aws = pkgs.myEnvFun {
       name = "ghc74-aws";
-      buildInputs = [ pkgs.stdenv ghc74Aws ];
+      buildInputs = [ ghc74Aws ];
+    };
+
+    envGhc76Aws = pkgs.myEnvFun {
+      name = "ghc76-aws";
+      buildInputs = [ ghc76Aws ];
     };
 
     osxEnv = pkgs.buildEnv {
       name = "osx-env";
-      paths = [ pkgs.nix envGhc74Def envGhc74Aws ];
+      paths = [ pkgs.nix ghc74Def envGhc74Aws envGhc76Aws ];
     };
   };
 }
