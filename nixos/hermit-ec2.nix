@@ -1,6 +1,6 @@
 { config, pkgs, modulesPath, ... }:
 
-let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
+let sshKeyFiles = [ ../ssh/mba_rsa.pub ../ssh/sigmoid_rsa.pub ]; in
 {
   require = [ "${modulesPath}/virtualisation/amazon-image.nix" ];
 
