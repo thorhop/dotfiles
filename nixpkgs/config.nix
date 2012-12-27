@@ -35,6 +35,8 @@ pkgs : {
     ghc74Def = pkgs.haskellPackages_ghc742.ghcWithPackages (self : with self; 
           pseudoHaskellPlatform self ++
           [
+            Agda
+
             criterion
             testFramework
             testFrameworkHunit
@@ -61,9 +63,14 @@ pkgs : {
       buildInputs = [ ghc76Aws ];
     };
 
+    envGhcHEADAws = pkgs.myEnvFun {
+      name = "ghcHEAD-aws";
+      buildInputs = [ (ghcAws pkgs.haskellPackages_ghcHEAD) ];
+    };
+
     osxEnv = pkgs.buildEnv {
       name = "osx-env";
-      paths = [ pkgs.nix ghc74Def envGhc74Aws envGhc76Aws ];
+      paths = [ pkgs.nix ghc74Def envGhc74Aws envGhc76Aws envGhcHEADAws ];
     };
   };
 }
