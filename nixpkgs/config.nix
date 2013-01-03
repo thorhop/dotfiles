@@ -49,7 +49,7 @@ pkgs : {
     ghc76Aws = ghcAws pkgs.haskellPackages_ghc761;
 
     ghc74Stackage = pkgs.haskellPackages_ghc742.ghcWithPackages (self : with self;
-          [ cabalDev tar mtl ]);
+          [ cabalInstall_1_16_0_2 cabalDev tar mtl ]);
 
     envGhc74Def = pkgs.myEnvFun {
       name = "ghc74-def";
