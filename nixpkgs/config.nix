@@ -48,9 +48,6 @@ pkgs : {
     ghc74Aws = ghcAws pkgs.haskellPackages_ghc742;
     ghc76Aws = ghcAws pkgs.haskellPackages_ghc761;
 
-    ghc74Stackage = pkgs.haskellPackages_ghc742.ghcWithPackages (self : with self;
-          [ cabalInstall_1_16_0_2 cabalDev tar mtl ]);
-
     envGhc74Def = pkgs.myEnvFun {
       name = "ghc74-def";
       buildInputs = [ ghc74Def ];
@@ -73,12 +70,13 @@ pkgs : {
 
     envGhc74Stackage = pkgs.myEnvFun {
       name = "ghc74-stackage";
-      buildInputs = [ ghc74Stackage ];
+      buildInputs = with pkgs.haskellPackages_ghc742;
+                    [ (ghcWithPackages (self : [ self.Cabal_1_16_0_3 ])) cabalInstall_1_16_0_2 cabalDev ];
     };
 
     osxEnv = pkgs.buildEnv {
       name = "osx-env";
-      paths = [ pkgs.nix ghc74Def envGhc74Aws envGhc76Aws envGhc74Stackage ];
+      paths = [ pkgs.nix ghc74Def envGhc74Aws envGhc76Aws envGhc74Stackage pkgs.bup ];
     };
   };
 }
