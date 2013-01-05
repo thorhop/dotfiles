@@ -49,6 +49,7 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ../ssh/sigmoid_rsa.pub ]; in
                                 vim
                                 git
                                 mosh
+                                bup
                              ];
   environment.enableBashCompletion = true;
 }
