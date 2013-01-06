@@ -80,5 +80,10 @@ pkgs : {
       name = "osx-env";
       paths = [ pkgs.nix ghc74Def envGhc74Aws envGhc76Aws envGhc74Stackage pkgs.bup ];
     };
+
+    hermitEnv = pkgs.buildEnv {
+      name = "hermit-env";
+      paths = [ ghc74Def envGhc74Aws envGhc76Aws pkgs.bup pkgs.weechat pkgs.wget pkgs.ncdu ];
+    };
   };
 }
