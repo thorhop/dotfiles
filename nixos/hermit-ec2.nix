@@ -26,7 +26,8 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ../ssh/sigmoid_rsa.pub ]; in
                      };
 
   time.timeZone = "Europe/Berlin";
-  networking.hostName = "hermit.breitkreuz.me";
+  networking.hostName = "hermit";
+  networking.domain = "breitkreuz.me";
 
   security.sudo = { enable = true;
                     wheelNeedsPassword = false;
