@@ -50,6 +50,7 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ../ssh/sigmoid_rsa.pub ]; in
                                 git
                                 mosh
                                 bup
+                                python
                              ];
   environment.enableBashCompletion = true;
 
