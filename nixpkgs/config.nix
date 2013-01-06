@@ -1,4 +1,6 @@
 pkgs : {
+  bup.par2Support = true;
+
   packageOverrides = pkgs :
     let pseudoHaskellPlatform = hask : with hask;
         if builtins.currentSystem == "x86_64-darwin" then

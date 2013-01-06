@@ -52,4 +52,6 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ../ssh/sigmoid_rsa.pub ]; in
                                 bup
                              ];
   environment.enableBashCompletion = true;
+
+  nixpkgs.config = import ../nixpkgs/config.nix;
 }
