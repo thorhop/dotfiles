@@ -3,6 +3,7 @@
 
 { config, pkgs, ... }:
 
+let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
 {
   require =
     [ # Include the results of the hardware scan.
@@ -44,6 +45,18 @@
     [ { label = "medusa-swap"; }
     ];
 
+  users.extraUsers = { root = { openssh.authorizedKeys.keyFiles = sshKeyFiles; };
+                       aristid = { createUser = true;
+                                   createHome = true;
+                                   description = "Aristid Breitkreuz";
+                                   group = "users";
+                                   extraGroups = [ "wheel" ];
+                                   home = "/home/aristid";
+                                   isSystemUser = false;
+                                   useDefaultShell = true;
+                                   openssh.authorizedKeys.keyFiles = sshKeyFiles; };
+                     };
+
   time = { timeZone = "Europe/Berlin"; };
 
   # Select internationalisation properties.
@@ -53,7 +66,10 @@
   #   defaultLocale = "en_US.UTF-8";
   # };
 
-  services = { openssh = { enable = true; } ;
+  security.sudo = { enable = true; };
+
+  services = { openssh = { enable = true; };
+               locate = { enable = true; };
              };
 
   # Enable CUPS to print documents.
