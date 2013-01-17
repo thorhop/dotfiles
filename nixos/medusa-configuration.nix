@@ -70,6 +70,10 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
 
   services = { openssh = { enable = true; };
                locate = { enable = true; };
+               xserver = { enable = true;
+                           displayManager = { kdm.enable = true; };
+                           desktopManager = { kde4.enable = true; };
+                         };
              };
 
   # Enable CUPS to print documents.
@@ -84,6 +88,12 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
   # services.xserver.displayManager.kdm.enable = true;
   # services.xserver.desktopManager.kde4.enable = true;
 
+  powerManagement = { enable = true; };
+
   environment = { enableBashCompletion = true;
                   systemPackages = with pkgs; [ screen vim mosh git emacs file wget ]; };
+
+  fonts = { enableCoreFonts = true; };
+
+  nixpkgs.config = import ../nixpkgs/config.nix;
 }
