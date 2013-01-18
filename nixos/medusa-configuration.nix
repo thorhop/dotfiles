@@ -73,8 +73,11 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
   services = { openssh = { enable = true; };
                locate = { enable = true; };
                xserver = { enable = true;
+                           layout = "us";
+                           xkbVariant = "altgr-intl";
                            displayManager = { kdm.enable = true; };
-                           desktopManager = { kde4.enable = true; };
+                           desktopManager = { kde4.enable = true;
+                                              xterm.enable = true; };
                          };
                printing = { enable = true; };
                nixosManual = { showManual = true; };
@@ -96,6 +99,7 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
                     emacs
                     file
                     wget
+                    pstree
                     chromiumWrapper
                     firefox
                     w3m
