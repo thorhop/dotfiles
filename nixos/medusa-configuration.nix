@@ -65,8 +65,11 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
                            layout = "us";
                            xkbVariant = "altgr-intl";
                            displayManager = { kdm.enable = true; };
-                           desktopManager = { kde4.enable = true;
-                                              xterm.enable = true; };
+                           desktopManager = { #kde4.enable = true;
+                                              #xterm.enable = true;
+                                              xfce.enable = true;
+                                            };
+                           windowManager = { xmonad.enable = true; };
                          };
                printing = { enable = true; };
                nixosManual = { showManual = true; };
