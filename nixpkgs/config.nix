@@ -88,7 +88,7 @@ pkgs : {
 
     medusaEnv = pkgs.buildEnv {
       name = "medusa-env";
-      paths = with pkgs; [ dropbox keepassx lm_sensors minecraft unetbootin ];
+      paths = with pkgs; [ dropbox keepassx lm_sensors minecraft unetbootin evince ];
     };
   };
 }
