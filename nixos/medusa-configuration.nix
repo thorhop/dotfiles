@@ -60,12 +60,13 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
 
   time = { timeZone = "Europe/Berlin"; };
 
-  # Select internationalisation properties.
-  # i18n = {
-  #   consoleFont = "lat9w-16";
-  #   consoleKeyMap = "us";
-  #   defaultLocale = "en_US.UTF-8";
-  # };
+  i18n = {
+    consoleFont = "lat9w-16";
+    consoleKeyMap = "us";
+    defaultLocale = "en_US.UTF-8";
+  };
+
+  hardware = { pulseaudio = { enable = true; }; };
 
   security.sudo = { enable = true; };
 
@@ -75,19 +76,11 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
                            displayManager = { kdm.enable = true; };
                            desktopManager = { kde4.enable = true; };
                          };
+               printing = { enable = true; };
              };
 
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
-
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
   # services.xserver.layout = "us";
   # services.xserver.xkbOptions = "eurosign:e";
-
-  # Enable the KDE Desktop Environment.
-  # services.xserver.displayManager.kdm.enable = true;
-  # services.xserver.desktopManager.kde4.enable = true;
 
   powerManagement = { enable = true; };
 
