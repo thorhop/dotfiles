@@ -1,12 +1,9 @@
-# the system.  Help is available in the configuration.nix(5) man page
-# or the NixOS manual available on virtual console 8 (Alt+F8).
-
 { config, pkgs, ... }:
 
 let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
 {
   require =
-    [ # Include the results of the hardware scan.
+    [
       ./medusa-hardware-configuration.nix
     ];
 
@@ -15,7 +12,6 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
                   luks.devices = [ { name = "cryptlvm"; device = "/dev/sda2"; preLVM = true; } ];
                 };
     
-  # Use the GRUB 2 boot loader.
   boot.loader.grub = { enable = true;
                        version = 2;
                        device = "/dev/sda";
@@ -33,15 +29,8 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
 
       { mountPoint = "/home";
         label = "medusa-home"; }
-
-      # { mountPoint = "/data"; # where you want to mount the device
-      #   device = "/dev/sdb";  # the device
-      #   fsType = "ext3";      # the type of the partition
-      #   options = "data=journal";
-      # }
     ];
 
-  # List swap partitions activated at boot time.
   swapDevices =
     [ { label = "medusa-swap"; }
     ];
@@ -82,9 +71,6 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
                printing = { enable = true; };
                nixosManual = { showManual = true; };
              };
-
-  # services.xserver.layout = "us";
-  # services.xserver.xkbOptions = "eurosign:e";
 
   powerManagement = { enable = true; };
 
