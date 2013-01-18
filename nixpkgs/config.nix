@@ -85,5 +85,10 @@ pkgs : {
       name = "hermit-env";
       paths = [ ghc74Def envGhc74Aws envGhc76Aws pkgs.bup pkgs.weechat pkgs.wget pkgs.ncdu ];
     };
+
+    medusaEnv = pkgs.buildEnv {
+      name = "medusa-env";
+      paths = with pkgs; [ which wget chromiumWrapper firefox dropbox keepassx lm_sensors minecraft ];
+    };
   };
 }
