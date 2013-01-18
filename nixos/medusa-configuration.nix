@@ -77,6 +77,7 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
                            desktopManager = { kde4.enable = true; };
                          };
                printing = { enable = true; };
+               nixosManual = { showManual = true; };
              };
 
   # services.xserver.layout = "us";
@@ -97,6 +98,7 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
                     wget
                     chromiumWrapper
                     firefox
+                    w3m
                   ];
                 };
 
