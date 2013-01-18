@@ -102,5 +102,7 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
 
   fonts = { enableCoreFonts = true; };
 
+  nix = { useChroot = true; };
+
   nixpkgs.config = import ../nixpkgs/config.nix;
 }
