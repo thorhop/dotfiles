@@ -19,6 +19,7 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
   boot.loader.grub = { enable = true;
                        version = 2;
                        device = "/dev/sda";
+                       memtest86 = true;
                      };
 
   networking = { hostName = "medusa"; };
@@ -91,7 +92,20 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
   powerManagement = { enable = true; };
 
   environment = { enableBashCompletion = true;
-                  systemPackages = with pkgs; [ screen vim mosh git emacs file wget ]; };
+                  systemPackages = with pkgs; [
+                    which
+                    wget
+                    screen
+                    vim
+                    mosh
+                    git
+                    emacs
+                    file
+                    wget
+                    chromiumWrapper
+                    firefox
+                  ];
+                };
 
   fonts = { enableCoreFonts = true; };
 
