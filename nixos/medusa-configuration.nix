@@ -17,7 +17,8 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
 
                   luks.devices = [ { name = "cryptlvm";
                                      device = "/dev/sda2";
-                                     preLVM = true; }
+                                     preLVM = true;
+                                     allowDiscards = true; }
                                  ];
                 };
     
