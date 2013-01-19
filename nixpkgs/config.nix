@@ -1,5 +1,6 @@
 pkgs : {
   bup.par2Support = true;
+  #pulseaudio = true;
 
   packageOverrides = pkgs :
     let pseudoHaskellPlatform = hask : with hask;
@@ -88,7 +89,7 @@ pkgs : {
 
     medusaEnv = pkgs.buildEnv {
       name = "medusa-env";
-      paths = with pkgs; [ dropbox keepassx lm_sensors minecraft unetbootin evince ];
+      paths = with pkgs; [ dropbox keepassx minecraft unetbootin evince pavucontrol ];
     };
   };
 }

@@ -8,8 +8,17 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
     ];
 
   boot.initrd = { kernelModules =
-                    [ "mac_hid" "hid_cherry" "hid_generic" "usbhid" "hid" "evdev" ];
-                  luks.devices = [ { name = "cryptlvm"; device = "/dev/sda2"; preLVM = true; } ];
+                    [ "mac_hid"
+                      "hid_cherry"
+                      "hid_generic"
+                      "usbhid"
+                      "hid"
+                      "evdev" ];
+
+                  luks.devices = [ { name = "cryptlvm";
+                                     device = "/dev/sda2";
+                                     preLVM = true; }
+                                 ];
                 };
     
   boot.loader.grub = { enable = true;
@@ -17,6 +26,8 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
                        device = "/dev/sda";
                        memtest86 = true;
                      };
+
+  boot.crashDump = { enable = true; };
 
   networking = { hostName = "medusa"; };
 
@@ -40,7 +51,7 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
                                    createHome = true;
                                    description = "Aristid Breitkreuz";
                                    group = "users";
-                                   extraGroups = [ "wheel" ];
+                                   extraGroups = [ "wheel" "audio" ];
                                    home = "/home/aristid";
                                    isSystemUser = false;
                                    useDefaultShell = true;
@@ -72,6 +83,7 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
                            windowManager = { xmonad.enable = true; };
                          };
                printing = { enable = true; };
+               avahi = { enable = true; };
                nixosManual = { showManual = true; };
              };
 
@@ -89,15 +101,19 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
                     file
                     wget
                     pstree
+                    psmisc
+                    unzip
                     chromiumWrapper
                     firefox
                     w3m
+                    lm_sensors
                   ];
                 };
 
   fonts = { enableCoreFonts = true; };
 
-  nix = { useChroot = true; };
+  nix = { useChroot = true;
+          extraOptions = "build-cores = 4"; };
 
-  nixpkgs.config = import ../nixpkgs/config.nix;
+  nixpkgs = { config = import ../nixpkgs/config.nix; };
 }
