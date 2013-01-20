@@ -32,6 +32,8 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
                        memtest86 = true;
                      };
 
+  boot.kernelPackages = pkgs.linuxPackages_3_7;
+
   #boot.crashDump = { enable = true; };
 
   networking = { hostName = "medusa"; };
