@@ -102,6 +102,7 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
                     mplayer
                     manpages
                     posix_man_pages
+                    texLiveFull
                   ];
                   pathsToLink = ["/share/doc"];
                 };
