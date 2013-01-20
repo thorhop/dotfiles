@@ -8,6 +8,7 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
       ./packages/basic.nix
       ./packages/browsers.nix
       ./packages/version-control.nix
+      ./packages/editors.nix
     ];
 
   boot.initrd = { kernelModules =
@@ -95,9 +96,7 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
 
   environment = { enableBashCompletion = true;
                   systemPackages = with pkgs; [
-                    vim
                     mosh
-                    emacs
                     unzip
                     lm_sensors
                     mplayer

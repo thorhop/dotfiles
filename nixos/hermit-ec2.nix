@@ -5,7 +5,9 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ../ssh/medusa_rsa.pub ]; in
   require = [ "${modulesPath}/virtualisation/amazon-image.nix"
               ./packages/basic.nix
               ./packages/browsers.nix
-              ./packages/version-control.nix ];
+              ./packages/version-control.nix
+              ./packages/editors.nix
+            ];
 
   ec2.metadata = true;
 
@@ -46,8 +48,6 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ../ssh/medusa_rsa.pub ]; in
   environment.systemPackages = with pkgs;
                              [
                                 jre
-                                emacs
-                                vim
                                 mosh
                                 bup
                                 python
