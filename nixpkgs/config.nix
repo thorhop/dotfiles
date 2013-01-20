@@ -34,6 +34,7 @@ pkgs : {
                            minecraft
                            unetbootin
                            evince
+                           xmlstarlet
                            pavucontrol
                            haskell.ghcDef
                            haskell.envGhcAws
