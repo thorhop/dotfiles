@@ -5,6 +5,7 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
   require =
     [
       ./medusa-hardware-configuration.nix
+      ./basic-packages.nix
     ];
 
   boot.initrd = { kernelModules =
@@ -92,13 +93,6 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
 
   environment = { enableBashCompletion = true;
                   systemPackages = with pkgs; [
-                    which
-                    wget
-                    screen
-                    file
-                    pstree
-                    psmisc
-                    pv
                     vim
                     mosh
                     git
