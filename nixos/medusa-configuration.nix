@@ -113,7 +113,8 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
                   ];
                 };
 
-  fonts = { enableCoreFonts = true; };
+  fonts = { enableCoreFonts = true;
+            enableGhostscriptFonts = true; };
 
   nix = { useChroot = true;
           extraOptions = "build-cores = 4"; };
