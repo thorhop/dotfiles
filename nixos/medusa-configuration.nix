@@ -98,6 +98,8 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
                     vim
                     mosh
                     git
+                    subversion
+                    mercurial
                     emacs
                     file
                     wget
@@ -110,6 +112,8 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
                     firefoxWrapper
                     w3m
                     mplayer
+                    manpages
+                    posix_man_pages
                   ];
                 };
 
