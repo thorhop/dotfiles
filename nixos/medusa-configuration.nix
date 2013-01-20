@@ -103,11 +103,13 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
                     wget
                     pstree
                     psmisc
+                    pv
                     unzip
+                    lm_sensors
                     chromiumWrapper
                     firefox
                     w3m
-                    lm_sensors
+                    mplayer
                   ];
                 };
 
