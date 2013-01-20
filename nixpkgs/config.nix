@@ -84,7 +84,7 @@ pkgs : {
 
     hermitEnv = pkgs.buildEnv {
       name = "hermit-env";
-      paths = [ ghc74Def envGhc74Aws envGhc76Aws pkgs.bup pkgs.weechat pkgs.wget pkgs.ncdu ];
+      paths = [ ghc74Def envGhc74Aws envGhc76Aws pkgs.weechat pkgs.ncdu ];
     };
 
     medusaEnv = pkgs.buildEnv {
