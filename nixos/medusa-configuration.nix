@@ -95,17 +95,16 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
                     which
                     wget
                     screen
+                    file
+                    pstree
+                    psmisc
+                    pv
                     vim
                     mosh
                     git
                     subversion
                     mercurial
                     emacs
-                    file
-                    wget
-                    pstree
-                    psmisc
-                    pv
                     unzip
                     lm_sensors
                     chromiumWrapper
