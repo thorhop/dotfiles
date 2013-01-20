@@ -107,7 +107,7 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
                     unzip
                     lm_sensors
                     chromiumWrapper
-                    firefox
+                    firefoxWrapper
                     w3m
                     mplayer
                   ];
