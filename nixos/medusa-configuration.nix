@@ -9,6 +9,7 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
       ./packages/browsers.nix
       ./packages/version-control.nix
       ./packages/editors.nix
+      ./packages/media.nix
       ./gnupg.nix
     ];
 
@@ -102,7 +103,6 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
                     mosh
                     unzip
                     lm_sensors
-                    mplayer
                     manpages
                     posix_man_pages
                     texLiveFull
