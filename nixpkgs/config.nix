@@ -23,8 +23,8 @@ pkgs : {
       paths = with pkgs; [ haskell.ghcDef
                            haskell.envGhcAws
                            haskellGhc76.envGhcAws
-                           pkgs.weechat
-                           pkgs.ncdu ];
+                           weechat
+                           ncdu ];
     };
 
     medusaEnv = pkgs.buildEnv {
