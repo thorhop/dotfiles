@@ -3,8 +3,8 @@
 let sshKeyFiles = [ ../ssh/mba_rsa.pub ../ssh/medusa_rsa.pub ]; in
 {
   require = [ "${modulesPath}/virtualisation/amazon-image.nix"
-              ./basic-packages.nix
-              ./browsers.nix ];
+              ./packages/basic.nix
+              ./packages/browsers.nix ];
 
   ec2.metadata = true;
 

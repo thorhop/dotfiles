@@ -5,8 +5,8 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
   require =
     [
       ./medusa-hardware-configuration.nix
-      ./basic-packages.nix
-      ./browsers.nix
+      ./packages/basic.nix
+      ./packages/browsers.nix
     ];
 
   boot.initrd = { kernelModules =
