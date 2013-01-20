@@ -7,6 +7,7 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
       ./medusa-hardware-configuration.nix
       ./packages/basic.nix
       ./packages/browsers.nix
+      ./packages/version-control.nix
     ];
 
   boot.initrd = { kernelModules =
@@ -96,9 +97,6 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
                   systemPackages = with pkgs; [
                     vim
                     mosh
-                    git
-                    subversion
-                    mercurial
                     emacs
                     unzip
                     lm_sensors
