@@ -6,6 +6,7 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
     [
       ./medusa-hardware-configuration.nix
       ./basic-packages.nix
+      ./browsers.nix
     ];
 
   boot.initrd = { kernelModules =
@@ -101,9 +102,6 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
                     emacs
                     unzip
                     lm_sensors
-                    chromiumWrapper
-                    firefoxWrapper
-                    w3m
                     mplayer
                     manpages
                     posix_man_pages
