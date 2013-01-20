@@ -115,6 +115,7 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
                     manpages
                     posix_man_pages
                   ];
+                  pathsToLink = ["/share/doc"];
                 };
 
   fonts = { enableCoreFonts = true;
