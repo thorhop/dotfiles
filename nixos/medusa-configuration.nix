@@ -32,7 +32,7 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
                        memtest86 = true;
                      };
 
-  boot.crashDump = { enable = true; };
+  #boot.crashDump = { enable = true; };
 
   networking = { hostName = "medusa"; };
 
