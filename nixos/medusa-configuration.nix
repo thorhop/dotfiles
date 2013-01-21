@@ -10,6 +10,7 @@
       ./packages/editors.nix
       ./packages/media.nix
       ./packages/build.nix
+      ./packages/networking.nix
       ./gnupg.nix
       ./admin-aristid.nix
     ];
