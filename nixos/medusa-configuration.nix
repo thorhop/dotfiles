@@ -1,6 +1,5 @@
 { config, pkgs, ... }:
 
-let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
 {
   require =
     [
@@ -11,6 +10,7 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
       ./packages/editors.nix
       ./packages/media.nix
       ./gnupg.nix
+      ./admin-aristid.nix
     ];
 
   boot.initrd = { kernelModules =
@@ -55,17 +55,7 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
     [ { label = "medusa-swap"; }
     ];
 
-  users.extraUsers = { root = { openssh.authorizedKeys.keyFiles = sshKeyFiles; };
-                       aristid = { createUser = true;
-                                   createHome = true;
-                                   description = "Aristid Breitkreuz";
-                                   group = "users";
-                                   extraGroups = [ "wheel" "audio" ];
-                                   home = "/home/aristid";
-                                   isSystemUser = false;
-                                   useDefaultShell = true;
-                                   openssh.authorizedKeys.keyFiles = sshKeyFiles; };
-                     };
+  users.extraUsers.aristid.extraGroups = [ "audio" ];
 
   time = { timeZone = "Europe/Berlin"; };
 
@@ -76,8 +66,6 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
   };
 
   hardware = { pulseaudio = { enable = true; }; };
-
-  security.sudo = { enable = true; };
 
   services = { openssh = { enable = true; };
                locate = { enable = true; };
