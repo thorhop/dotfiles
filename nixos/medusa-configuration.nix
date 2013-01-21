@@ -9,6 +9,7 @@
       ./packages/version-control.nix
       ./packages/editors.nix
       ./packages/media.nix
+      ./packages/build.nix
       ./gnupg.nix
       ./admin-aristid.nix
     ];
