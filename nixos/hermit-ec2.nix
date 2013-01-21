@@ -32,6 +32,8 @@
 
   services.locate = { enable = true; };
 
+  services.xserver = { enable = false; };
+
   environment.systemPackages = with pkgs;
                              [
                                 jre
