@@ -105,6 +105,7 @@
             enableGhostscriptFonts = true; };
 
   nix = { useChroot = true;
+          #readOnlyStore = true;
           extraOptions = "build-cores = 4"; };
 
   nixpkgs = { config = import ../nixpkgs/config.nix; };
