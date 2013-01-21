@@ -92,7 +92,8 @@ let sshKeyFiles = [ ../ssh/mba_rsa.pub ]; in
                            windowManager = { xmonad.enable = true; };
                          };
                printing = { enable = true; };
-               avahi = { enable = true; };
+               avahi = { enable = true;
+                         nssmdns = true; };
                nixosManual = { showManual = true; };
              };
 
