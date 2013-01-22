@@ -38,7 +38,8 @@ pkgs : {
                            pavucontrol
                            haskell.ghcDef
                            haskell.envGhcAws
-                           haskellGhc76.envGhcAws ];
+                           haskellGhc76.envGhcAws
+                           jre ];
     };
   };
 }
