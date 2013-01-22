@@ -7,6 +7,7 @@
               ./packages/version-control.nix
               ./packages/editors.nix
               ./admin-aristid.nix
+              ./nix-cfg.nix
             ];
 
   ec2.metadata = true;
@@ -42,6 +43,4 @@
                                 python
                              ];
   environment.enableBashCompletion = true;
-
-  nixpkgs.config = import ../nixpkgs/config.nix;
 }

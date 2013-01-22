@@ -13,6 +13,7 @@
       ./packages/networking.nix
       ./gnupg.nix
       ./admin-aristid.nix
+      ./nix-cfg.nix
     ];
 
   boot.initrd = { kernelModules =
@@ -103,10 +104,4 @@
 
   fonts = { enableCoreFonts = true;
             enableGhostscriptFonts = true; };
-
-  nix = { useChroot = true;
-          #readOnlyStore = true;
-          extraOptions = "build-cores = 4"; };
-
-  nixpkgs = { config = import ../nixpkgs/config.nix; };
 }
