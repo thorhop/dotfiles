@@ -99,10 +99,12 @@
                     manpages
                     posix_man_pages
                     texLiveFull
+                    libreoffice
                   ];
                   pathsToLink = ["/share/doc"];
                 };
 
   fonts = { enableCoreFonts = true;
-            enableGhostscriptFonts = true; };
+            enableGhostscriptFonts = true;
+            extraFonts = with pkgs; [ dejavu_fonts inconsolata vistafonts ]; };
 }
