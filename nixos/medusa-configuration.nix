@@ -11,6 +11,7 @@
       ./packages/media.nix
       ./packages/build.nix
       ./packages/networking.nix
+      ./packages/math.nix
       ./gnupg.nix
       ./admin-aristid.nix
       ./nix-cfg.nix
