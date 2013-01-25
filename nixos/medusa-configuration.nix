@@ -16,6 +16,7 @@
       ./gnupg.nix
       ./admin-aristid.nix
       ./nix-cfg.nix
+      #<nixos/modules/programs/virtualbox.nix>
     ];
 
   boot.initrd = { kernelModules =
@@ -60,7 +61,7 @@
     [ { label = "medusa-swap"; }
     ];
 
-  users.extraUsers.aristid.extraGroups = [ "audio" ];
+  users.extraUsers.aristid.extraGroups = [ "audio" "vboxusers" ];
 
   time = { timeZone = "Europe/Berlin"; };
 
