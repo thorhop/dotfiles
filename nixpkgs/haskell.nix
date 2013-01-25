@@ -18,6 +18,9 @@ rec {
         [
           Agda
 
+          cryptohash
+          base64Bytestring
+
           criterion
           testFramework
           testFrameworkHunit
