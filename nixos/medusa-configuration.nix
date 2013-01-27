@@ -71,7 +71,8 @@
     defaultLocale = "de_DE.UTF-8";
   };
 
-  hardware = { pulseaudio = { enable = true; }; };
+  hardware = { pulseaudio = { enable = true; };
+               sane = { enable = true; }; };
 
   services = { openssh = { enable = true; };
                locate = { enable = true; };
@@ -85,7 +86,8 @@
                                             };
                            windowManager = { xmonad.enable = true; };
                          };
-               printing = { enable = true; };
+               printing = { enable = true;
+                            drivers = with pkgs; [ hplip gutenprint ]; };
                avahi = { enable = true;
                          nssmdns = true; };
                nixosManual = { showManual = true; };
@@ -106,6 +108,7 @@
                     skype
                     gnucash
                     evince
+                    xsane
                   ];
                   pathsToLink = ["/share/doc" "/etc/gconf"];
                 };
