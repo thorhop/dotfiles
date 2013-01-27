@@ -112,6 +112,7 @@
                     hplip
                   ];
                   pathsToLink = ["/share/doc" "/etc/gconf"];
+                  etc = [ { source = ../screenrc; target = "screenrc"; } ];
                 };
 
   fonts = { enableCoreFonts = true;
