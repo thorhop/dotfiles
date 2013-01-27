@@ -109,6 +109,7 @@
                     gnucash
                     evince
                     xsane
+                    hplip
                   ];
                   pathsToLink = ["/share/doc" "/etc/gconf"];
                 };
