@@ -1,1 +1,4 @@
+xml:readwrite:$(HOME)/.gconf
 xml:readonly:$(HOME)/.nix-profile/etc/gconf/gconf.xml.defaults/
+xml:readonly:/run/current-system/sw/etc/gconf/gconf.xml.defaults
+

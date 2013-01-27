@@ -106,7 +106,7 @@
                     skype
                     gnucash
                   ];
-                  pathsToLink = ["/share/doc"];
+                  pathsToLink = ["/share/doc" "/etc/gconf"];
                 };
 
   fonts = { enableCoreFonts = true;
