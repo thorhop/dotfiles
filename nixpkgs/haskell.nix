@@ -20,6 +20,7 @@ rec {
 
           cryptohash
           base64Bytestring
+          lens
 
           criterion
           testFramework
