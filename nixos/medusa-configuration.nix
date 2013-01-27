@@ -105,6 +105,7 @@
                     libreoffice
                     skype
                     gnucash
+                    evince
                   ];
                   pathsToLink = ["/share/doc" "/etc/gconf"];
                 };

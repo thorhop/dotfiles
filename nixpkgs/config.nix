@@ -33,7 +33,6 @@ pkgs : {
                            keepassx
                            minecraft
                            unetbootin
-                           evince
                            xmlstarlet
                            pavucontrol
                            haskell.ghcDef
