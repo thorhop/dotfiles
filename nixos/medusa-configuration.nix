@@ -68,7 +68,7 @@
   i18n = {
     consoleFont = "lat9w-16";
     consoleKeyMap = "us";
-    defaultLocale = "en_US.UTF-8";
+    defaultLocale = "de_DE.UTF-8";
   };
 
   hardware = { pulseaudio = { enable = true; }; };
