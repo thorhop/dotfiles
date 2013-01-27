@@ -89,6 +89,7 @@
                avahi = { enable = true;
                          nssmdns = true; };
                nixosManual = { showManual = true; };
+               dbus.packages = [ pkgs.gnome.GConf ];
              };
 
   powerManagement = { enable = true; };
