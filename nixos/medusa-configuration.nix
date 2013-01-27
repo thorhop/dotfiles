@@ -103,6 +103,8 @@
                     posix_man_pages
                     texLiveFull
                     libreoffice
+                    skype
+                    gnucash
                   ];
                   pathsToLink = ["/share/doc"];
                 };
