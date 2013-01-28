@@ -1,4 +1,5 @@
 pkgs : {
+  chromium = { enableGoogleTalkPlugin = true; };
   bup.par2Support = true;
   #pulseaudio = true;
 
