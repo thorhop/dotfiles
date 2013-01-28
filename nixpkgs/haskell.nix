@@ -3,19 +3,9 @@ pkgs : hask :
 rec {
   version = hask.ghcPlain.version;
 
-  pseudoHaskellPlatform = with hask;
-        if builtins.currentSystem == "x86_64-darwin" then
-        [ HTTP HUnit QuickCheck async cgi fgl
-          haskellSrc html network parallel parsec primitive
-          regexBase regexCompat regexPosix
-          split stm syb deepseq text transformers mtl vector xhtml zlib random
-          cabalInstall alex happy ghc haddock ]
-        else
-        [ haskellPlatform ];
-
   ghcDef = hask.ghcWithPackages (self : with self;
-        pseudoHaskellPlatform ++
         [
+          haskellPlatform
           Agda
 
           cryptohash
