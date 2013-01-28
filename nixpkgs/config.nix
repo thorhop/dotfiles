@@ -8,6 +8,8 @@ pkgs : {
         haskellGhc76 = haskellGen (pkgs.haskellPackages_ghc761);
     in
   rec {
+    ftb = pkgs.callPackage ./packages/ftb.nix { };
+
     osxEnv = pkgs.buildEnv {
       name = "osx-env";
       paths = with pkgs; [ nix
