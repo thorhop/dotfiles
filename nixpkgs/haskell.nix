@@ -22,6 +22,8 @@ rec {
           base64Bytestring
           lens
 
+          caseInsensitive
+
           criterion
           testFramework
           testFrameworkHunit
