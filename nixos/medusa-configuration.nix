@@ -41,6 +41,7 @@
                      };
 
   boot.kernelPackages = pkgs.linuxPackages_3_7;
+  boot.blacklistedKernelModules = [ "snd_hda_intel" ];
 
   #boot.crashDump = { enable = true; };
 
@@ -71,7 +72,7 @@
     defaultLocale = "de_DE.UTF-8";
   };
 
-  hardware = { pulseaudio = { enable = true; };
+  hardware = { pulseaudio = { enable = false; };
                sane = { enable = true; }; };
 
   services = { openssh = { enable = true; };
