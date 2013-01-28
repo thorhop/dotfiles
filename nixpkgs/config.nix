@@ -10,8 +10,7 @@ pkgs : {
   rec {
     osxEnv = pkgs.buildEnv {
       name = "osx-env";
-      paths = with pkgs; [ nix
-                           haskell.ghcDef
+      paths = with pkgs; [ haskell.ghcDef
                            haskell.envGhcAws
                            haskellGhc76.envGhcAws
                            haskell.envGhcStackage
