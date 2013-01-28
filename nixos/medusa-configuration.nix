@@ -109,6 +109,7 @@
                     skype
                     gnucash
                     evince
+                    adobeReader
                     xsane
                     hplip
                   ];
