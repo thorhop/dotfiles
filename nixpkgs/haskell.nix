@@ -8,6 +8,8 @@ rec {
           haskellPlatform
           Agda
 
+          cabalDev
+
           cryptohash
           base64Bytestring
           lens
