@@ -10,6 +10,7 @@ pkgs : {
     in
   rec {
     ftb = pkgs.callPackage ./packages/ftb.nix { };
+    technicpack = pkgs.callPackage ./packages/technicpack.nix { };
 
     osxEnv = pkgs.buildEnv {
       name = "osx-env";
