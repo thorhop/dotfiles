@@ -6,7 +6,7 @@ pkgs : {
   packageOverrides = pkgs :
     let haskellGen = import ./haskell.nix pkgs;
         haskell = haskellGen (pkgs.haskellPackages_ghc742);
-        haskellGhc76 = haskellGen (pkgs.haskellPackages_ghc761);
+        haskellGhc76 = haskellGen (pkgs.haskellPackages_ghc762);
     in
   rec {
     ftb = pkgs.callPackage ./packages/ftb.nix { };
