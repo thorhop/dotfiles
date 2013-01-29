@@ -3,6 +3,8 @@ pkgs : hask :
 rec {
   version = hask.ghcPlain.version;
 
+  ghcPlatform = hask.ghcWithPackages (self : [ self.haskellPlatform ]);
+
   ghcDef = hask.ghcWithPackages (self : with self;
         [
           haskellPlatform
@@ -45,6 +47,13 @@ rec {
           xmlConduit
         ]);
 
+  ghcCabalDev = hask.ghcWithPackages (self : with self; [ haskellPlatform MonadRandom setenv tar testFramework testFrameworkHunit ]);
+
+  envGhcPlatform = pkgs.myEnvFun {
+    name = "ghc-platform-${version}";
+    buildInputs = [ ghcPlatform ];
+  };
+
   envGhcDef = pkgs.myEnvFun {
     name = "ghc-def-${version}";
     buildInputs = [ ghcDef ];
@@ -53,6 +62,11 @@ rec {
   envGhcAws = pkgs.myEnvFun {
     name = "ghc-aws-${version}";
     buildInputs = [ ghcAws ];
+  };
+
+  envGhcCabalDev = pkgs.myEnvFun {
+    name = "ghc-cabal-dev-${version}";
+    buildInputs = [ ghcCabalDev ];
   };
 
   envGhcStackage = pkgs.myEnvFun {

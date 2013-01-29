@@ -15,6 +15,7 @@ pkgs : {
       name = "osx-env";
       paths = with pkgs; [ haskell.ghcDef
                            haskell.envGhcAws
+                           #haskellGhc76.envGhcDef
                            haskellGhc76.envGhcAws
                            haskell.envGhcStackage
                            bup ];
@@ -39,7 +40,12 @@ pkgs : {
                            pavucontrol
                            haskell.ghcDef
                            haskell.envGhcAws
+                           haskell.envGhcPlatform
+                           haskell.envGhcCabalDev
+                           #haskellGhc76.envGhcDef
                            haskellGhc76.envGhcAws
+                           haskellGhc76.envGhcPlatform
+                           haskellGhc76.envGhcCabalDev
                            jre ];
     };
   };
