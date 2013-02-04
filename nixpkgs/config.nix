@@ -33,9 +33,10 @@ pkgs : {
 
     medusaEnv = pkgs.buildEnv {
       name = "medusa-env";
-      paths = with pkgs; [ dropbox
-                           keepassx
+      paths = with pkgs; [ keepassx
                            minecraft
+                           ftb
+                           technicpack
                            unetbootin
                            xmlstarlet
                            pavucontrol
@@ -47,7 +48,8 @@ pkgs : {
                            haskellGhc76.envGhcAws
                            haskellGhc76.envGhcPlatform
                            haskellGhc76.envGhcCabalDev
-                           jre ];
+                           jre
+                         ];
     };
   };
 }

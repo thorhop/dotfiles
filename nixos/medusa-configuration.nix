@@ -112,6 +112,7 @@
                     adobeReader
                     xsane
                     hplip
+                    dropbox
                   ];
                   pathsToLink = ["/share/doc" "/etc/gconf"];
                   etc = [ { source = ../screenrc; target = "screenrc"; } ];
