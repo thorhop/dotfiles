@@ -16,7 +16,7 @@
       ./gnupg.nix
       ./admin-aristid.nix
       ./nix-cfg.nix
-      #<nixos/modules/programs/virtualbox.nix>
+      <nixos/modules/programs/virtualbox.nix>
     ];
 
   boot.initrd = { kernelModules =
@@ -40,7 +40,7 @@
                        memtest86 = true;
                      };
 
-  boot.kernelPackages = pkgs.linuxPackages_3_7;
+  #boot.kernelPackages = pkgs.linuxPackages_3_7;
   boot.blacklistedKernelModules = [ "snd_hda_intel" ];
 
   #boot.crashDump = { enable = true; };
