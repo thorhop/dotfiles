@@ -3,36 +3,28 @@
 {
   require =
     [
-      ./medusa-hardware-configuration.nix
-      ./packages/basic.nix
-      ./packages/browsers.nix
-      ./packages/version-control.nix
-      ./packages/editors.nix
-      ./packages/media.nix
-      ./packages/build.nix
-      ./packages/networking.nix
-      ./packages/math.nix
-      ./packages/misc.nix
-      ./gnupg.nix
-      ./admin-aristid.nix
-      ./nix-cfg.nix
+      ./hardware-configuration.nix
+      ../packages/basic.nix
+      ../packages/browsers.nix
+      ../packages/version-control.nix
+      ../packages/editors.nix
+      ../packages/media.nix
+      ../packages/build.nix
+      ../packages/networking.nix
+      ../packages/math.nix
+      ../packages/misc.nix
+      ../gnupg.nix
+      ../admin-aristid.nix
+      ../nix-cfg.nix
+      ../keyboards.nix
       #<nixos/modules/programs/virtualbox.nix>
     ];
 
-  boot.initrd = { kernelModules =
-                    [ "mac_hid"
-                      "hid_cherry"
-                      "hid_generic"
-                      "usbhid"
-                      "hid"
-                      "evdev" ];
-
-                  luks.devices = [ { name = "cryptlvm";
-                                     device = "/dev/sda2";
-                                     preLVM = true;
-                                     allowDiscards = true; }
-                                 ];
-                };
+  boot.initrd.luks.devices = [ { name = "cryptlvm";
+                                 device = "/dev/sda2";
+                                 preLVM = true;
+                                 allowDiscards = true; }
+                             ];
     
   boot.loader.grub = { enable = true;
                        version = 2;
@@ -119,7 +111,7 @@
                     #virtinst
                   ];
                   pathsToLink = ["/share/doc" "/etc/gconf"];
-                  etc = [ { source = ../screenrc; target = "screenrc"; } ];
+                  etc = [ { source = ../../screenrc; target = "screenrc"; } ];
                 };
 
   fonts = { enableCoreFonts = true;
