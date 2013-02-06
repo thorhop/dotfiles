@@ -16,7 +16,7 @@
       ./gnupg.nix
       ./admin-aristid.nix
       ./nix-cfg.nix
-      <nixos/modules/programs/virtualbox.nix>
+      #<nixos/modules/programs/virtualbox.nix>
     ];
 
   boot.initrd = { kernelModules =
@@ -40,7 +40,7 @@
                        memtest86 = true;
                      };
 
-  #boot.kernelPackages = pkgs.linuxPackages_3_7;
+  boot.kernelPackages = pkgs.linuxPackages_3_7;
   boot.blacklistedKernelModules = [ "snd_hda_intel" ];
 
   #boot.crashDump = { enable = true; };
@@ -62,7 +62,9 @@
     [ { label = "medusa-swap"; }
     ];
 
-  users.extraUsers.aristid.extraGroups = [ "audio" "vboxusers" ];
+  users.extraUsers.aristid.extraGroups = [ "audio" "vboxusers" "libvirt" ];
+
+  users.extraGroups.libvirt = {};
 
   time = { timeZone = "Europe/Berlin"; };
 
@@ -113,6 +115,8 @@
                     xsane
                     hplip
                     dropbox
+                    virtmanager
+                    #virtinst
                   ];
                   pathsToLink = ["/share/doc" "/etc/gconf"];
                   etc = [ { source = ../screenrc; target = "screenrc"; } ];
@@ -120,5 +124,17 @@
 
   fonts = { enableCoreFonts = true;
             enableGhostscriptFonts = true;
-            extraFonts = with pkgs; [ dejavu_fonts inconsolata vistafonts ]; };
+            extraFonts = with pkgs; [ dejavu_fonts inconsolata vistafonts lmodern unifont ]; };
+
+  virtualisation.libvirtd = { enable = true; };
+
+  security.polkit.permissions =
+    ''
+    [libvirt Management Access]
+      Identity=unix-group:libvirt
+      Action=org.libvirt.unix.manage
+      ResultAny=yes
+      ResultInactive=yes
+      ResultActive=yes
+    '';
 }
