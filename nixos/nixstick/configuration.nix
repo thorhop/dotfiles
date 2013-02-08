@@ -33,27 +33,34 @@
 
   networking.hostName = "nixstick";
 
-  # Select internationalisation properties.
-  # i18n = {
-  #   consoleFont = "lat9w-16";
-  #   consoleKeyMap = "us";
-  #   defaultLocale = "en_US.UTF-8";
-  # };
+  time.timeZone = "Europe/Berlin";
 
-  # List services that you want to enable:
+  i18n = {
+    consoleFont = "lat9w-16";
+    consoleKeyMap = "us";
+    defaultLocale = "de_DE.UTF-8";
+  };
 
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh = { enable = true; };
+  services.xserver = { enable = true;
+                       layout = "us";
+                       xkbVariant = "altgr-intl";
+                       displayManager = { kdm.enable = true; };
+                       desktopManager = { xfce.enable = true; };
+                     };
+  services.avahi = { enable = true;
+                     nssmdns = true;
+                   };
+  services.nixosManual.showManual = true;
 
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
+  powerManagement = { enable = true; };
 
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-  # services.xserver.layout = "us";
-  # services.xserver.xkbOptions = "eurosign:e";
+  environment.enableBashCompletion = true;
 
-  # Enable the KDE Desktop Environment.
-  # services.xserver.displayManager.kdm.enable = true;
-  # services.xserver.desktopManager.kde4.enable = true;
+  environment.systemPackages = with pkgs; [ mosh evince ];
+  environment.pathsToLink = ["/share/doc"];
+
+  fonts = { enableCoreFonts = true;
+            enableGhostscriptFonts = true;
+            extraFonts = with pkgs; [ dejavu_fonts inconsolata vistafonts lmodern unifont ]; };
 }
