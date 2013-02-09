@@ -5,9 +5,9 @@ stdenv.mkDerivation {
   name = "ftb-1.2.2";
 
   src = fetchurl {
-    url = "http://www.creeperrepo.net/direct/FTB2/e57374cdb5b7a208c25b7719c0788226/launcher%5EFTB_Launcher.jar";
+    url = "http://www.creeperrepo.net/direct/FTB2/d1fafd471e770192d76a9c93204542c3/launcher%5EFTB_Launcher.jar";
     name = "FTB_Launcher.jar";
-    sha256 = "134fd730623ab22360d672f40b932a582d98ceaa081bf790054228573980aea8";
+    sha256 = "1a5fh0wmfa220n8gf6q8mb79hbaq5a9hpx3jsrh27cisc8qdfkqk";
   };
 
   phases = "installPhase";
