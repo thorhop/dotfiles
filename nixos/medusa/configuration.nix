@@ -17,7 +17,7 @@
       ../admin-aristid.nix
       ../nix-cfg.nix
       ../keyboards.nix
-      #<nixos/modules/programs/virtualbox.nix>
+      <nixos/modules/programs/virtualbox.nix>
     ];
 
   boot.initrd.luks.devices = [ { name = "cryptlvm";
