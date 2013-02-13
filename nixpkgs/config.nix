@@ -48,6 +48,7 @@ pkgs : {
                            haskellGhc76.envGhcAws
                            haskellGhc76.envGhcPlatform
                            haskellGhc76.envGhcCabalDev
+                           haskellGhc76.envGhcRepa
                            jre
                          ];
     };

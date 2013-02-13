@@ -11,6 +11,7 @@ rec {
           Agda
 
           cabalDev
+          ghcCore
 
           cryptohash
           base64Bytestring
@@ -49,6 +50,12 @@ rec {
 
   ghcCabalDev = hask.ghcWithPackages (self : with self; [ haskellPlatform MonadRandom setenv tar testFramework testFrameworkHunit ]);
 
+  ghcRepa = hask.ghcWithPackages ( self : with self;
+        [
+          haskellPlatform
+          repa
+        ]);
+
   envGhcPlatform = pkgs.myEnvFun {
     name = "ghc-platform-${version}";
     buildInputs = [ ghcPlatform ];
@@ -75,5 +82,10 @@ rec {
                   [ (ghcWithPackages (self : [ self.Cabal_1_16_0_3 ]))
                     cabalInstall_1_16_0_2
                     cabalDev ];
+  };
+
+  envGhcRepa = pkgs.myEnvFun {
+    name = "ghc-repa-${version}";
+    buildInputs = [ ghcRepa ];
   };
 }
