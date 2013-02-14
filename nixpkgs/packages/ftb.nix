@@ -5,7 +5,7 @@ stdenv.mkDerivation {
   name = "ftb-1.2.2";
 
   src = fetchurl {
-    url = "http://www.creeperrepo.net/direct/FTB2/d1fafd471e770192d76a9c93204542c3/launcher%5EFTB_Launcher.jar";
+    url = "http://www.creeperrepo.net/direct/FTB2/0a66291ca0740bb8ad4c7b664fb4dbb2/launcher%5EFTB_Launcher.jar";
     name = "FTB_Launcher.jar";
     sha256 = "1a5fh0wmfa220n8gf6q8mb79hbaq5a9hpx3jsrh27cisc8qdfkqk";
   };
