@@ -108,7 +108,9 @@
                     hplip
                     dropbox
                     virtmanager
-                    #virtinst
+                    virtinst
+                    pythonFull
+                    pydb
                   ];
                   pathsToLink = ["/share/doc" "/etc/gconf"];
                   etc = [ { source = ../../screenrc; target = "screenrc"; } ];

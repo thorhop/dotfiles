@@ -4,5 +4,6 @@
   environment.systemPackages = with pkgs;
                                [ mplayer
                                  mpg123
+                                 vlc
                                ];
 }
