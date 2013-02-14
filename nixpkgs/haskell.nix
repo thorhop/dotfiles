@@ -58,22 +58,22 @@ rec {
 
   envGhcPlatform = pkgs.myEnvFun {
     name = "ghc-platform-${version}";
-    buildInputs = [ ghcPlatform ];
+    buildInputs = [ ghcPlatform pkgs.llvm ];
   };
 
   envGhcDef = pkgs.myEnvFun {
     name = "ghc-def-${version}";
-    buildInputs = [ ghcDef ];
+    buildInputs = [ ghcDef pkgs.llvm ];
   };
 
   envGhcAws = pkgs.myEnvFun {
     name = "ghc-aws-${version}";
-    buildInputs = [ ghcAws ];
+    buildInputs = [ ghcAws pkgs.llvm ];
   };
 
   envGhcCabalDev = pkgs.myEnvFun {
     name = "ghc-cabal-dev-${version}";
-    buildInputs = [ ghcCabalDev ];
+    buildInputs = [ ghcCabalDev pkgs.llvm ];
   };
 
   envGhcStackage = pkgs.myEnvFun {
@@ -86,6 +86,6 @@ rec {
 
   envGhcRepa = pkgs.myEnvFun {
     name = "ghc-repa-${version}";
-    buildInputs = [ ghcRepa ];
+    buildInputs = [ ghcRepa pkgs.llvm ];
   };
 }

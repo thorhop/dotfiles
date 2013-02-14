@@ -40,6 +40,7 @@ pkgs : {
                            unetbootin
                            xmlstarlet
                            pavucontrol
+                           llvm
                            haskell.ghcDef
                            haskell.envGhcAws
                            haskell.envGhcPlatform
