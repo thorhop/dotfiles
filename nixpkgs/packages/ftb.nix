@@ -1,6 +1,9 @@
 {stdenv, fetchurl, jre, libX11, libXext, libXcursor, libXrandr, libXxf86vm
 , mesa, openal, alsaOss }:
 
+# consider making a proper package, using this:
+# https://github.com/Slowpoke101/FTBLaunch
+
 stdenv.mkDerivation {
   name = "ftb-1.2.2";
 
