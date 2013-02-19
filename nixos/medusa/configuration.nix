@@ -80,6 +80,7 @@
                                               xfce.enable = true;
                                             };
                            windowManager = { xmonad.enable = true; };
+                           driSupport32Bit = true;
                          };
                printing = { enable = true;
                             drivers = with pkgs; [ hplip gutenprint cups_pdf_filter ]; };
