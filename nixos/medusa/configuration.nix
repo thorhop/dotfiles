@@ -82,7 +82,7 @@
                            windowManager = { xmonad.enable = true; };
                          };
                printing = { enable = true;
-                            drivers = with pkgs; [ hplip gutenprint ]; };
+                            drivers = with pkgs; [ hplip gutenprint cups_pdf_filter ]; };
                avahi = { enable = true;
                          nssmdns = true; };
                nixosManual = { showManual = true; };
