@@ -1,7 +1,7 @@
 { config, pkgs, modulesPath, ... }:
 
 {
-  require = [ "${modulesPath}/virtualisation/amazon-image.nix"
+  require = [ <nixos/modules//virtualisation/amazon-image.nix>
               ./packages/basic.nix
               ./packages/browsers.nix
               ./packages/version-control.nix
