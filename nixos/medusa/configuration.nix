@@ -48,6 +48,12 @@
 
       { mountPoint = "/home";
         label = "medusa-home"; }
+
+      { mountPoint = "/data";
+        label = "medusa-data"; }
+
+      { mountPoint = "/blobby";
+        label = "medusa-blobby"; }
     ];
 
   swapDevices =
