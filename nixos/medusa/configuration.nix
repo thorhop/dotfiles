@@ -18,6 +18,7 @@
       ../nix-cfg.nix
       ../keyboards.nix
       ../virt/vbox.nix
+      ../virt/libvirtd.nix
     ];
 
   boot.initrd.luks.devices = [ { name = "cryptlvm";
@@ -62,9 +63,7 @@
 
   users.primaryUser = "aristid";
 
-  users.extraUsers.aristid.extraGroups = [ "audio" "libvirt" ];
-
-  users.extraGroups.libvirt = {};
+  users.extraUsers.aristid.extraGroups = [ "audio" ];
 
   time = { timeZone = "Europe/Berlin"; };
 
@@ -116,8 +115,6 @@
                     xsane
                     hplip
                     dropbox
-                    virtmanager
-                    virtinst
                     pythonFull
                     pydb
                   ];
@@ -128,16 +125,4 @@
   fonts = { enableCoreFonts = true;
             enableGhostscriptFonts = true;
             extraFonts = with pkgs; [ dejavu_fonts inconsolata vistafonts lmodern unifont ]; };
-
-  virtualisation.libvirtd = { enable = true; };
-
-  security.polkit.permissions =
-    ''
-    [libvirt Management Access]
-      Identity=unix-group:libvirt
-      Action=org.libvirt.unix.manage
-      ResultAny=yes
-      ResultInactive=yes
-      ResultActive=yes
-    '';
 }
