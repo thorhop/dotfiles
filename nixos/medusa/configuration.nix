@@ -17,7 +17,7 @@
       ../admin-aristid.nix
       ../nix-cfg.nix
       ../keyboards.nix
-      <nixos/modules/programs/virtualbox.nix>
+      ../virt/vbox.nix
     ];
 
   boot.initrd.luks.devices = [ { name = "cryptlvm";
@@ -60,7 +60,9 @@
     [ { label = "medusa-swap"; }
     ];
 
-  users.extraUsers.aristid.extraGroups = [ "audio" "vboxusers" "libvirt" ];
+  users.primaryUser = "aristid";
+
+  users.extraUsers.aristid.extraGroups = [ "audio" "libvirt" ];
 
   users.extraGroups.libvirt = {};
 
