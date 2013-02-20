@@ -4,21 +4,21 @@
   require =
     [
       ./hardware-configuration.nix
-      ../packages/basic.nix
-      ../packages/browsers.nix
-      ../packages/version-control.nix
-      ../packages/editors.nix
-      ../packages/media.nix
-      ../packages/build.nix
-      ../packages/networking.nix
-      ../packages/math.nix
-      ../packages/misc.nix
-      ../gnupg.nix
-      ../admin-aristid.nix
-      ../nix-cfg.nix
-      ../keyboards.nix
-      ../virt/vbox.nix
-      ../virt/libvirtd.nix
+      ../common/packages/basic.nix
+      ../common/packages/browsers.nix
+      ../common/packages/version-control.nix
+      ../common/packages/editors.nix
+      ../common/packages/media.nix
+      ../common/packages/build.nix
+      ../common/packages/networking.nix
+      ../common/packages/math.nix
+      ../common/packages/misc.nix
+      ../common/gnupg.nix
+      ../common/admin-aristid.nix
+      ../common/nix-cfg.nix
+      ../common/keyboards.nix
+      ../common/virt/vbox.nix
+      ../common/virt/libvirtd.nix
     ];
 
   boot.initrd.luks.devices = [ { name = "cryptlvm";

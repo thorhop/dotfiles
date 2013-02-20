@@ -2,12 +2,12 @@
 
 {
   require = [ <nixos/modules/virtualisation/amazon-image.nix>
-              ./packages/basic.nix
-              ./packages/browsers.nix
-              ./packages/version-control.nix
-              ./packages/editors.nix
-              ./admin-aristid.nix
-              ./nix-cfg.nix
+              ./common/packages/basic.nix
+              ./common/packages/browsers.nix
+              ./common/packages/version-control.nix
+              ./common/packages/editors.nix
+              ./common/admin-aristid.nix
+              ./common/nix-cfg.nix
             ];
 
   ec2.metadata = true;

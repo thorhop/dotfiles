@@ -1,24 +1,21 @@
-# the system.  Help is available in the configuration.nix(5) man page
-# or the NixOS manual available on virtual console 8 (Alt+F8).
-
 { config, pkgs, ... }:
 
 {
   require =
-    [ # Include the results of the hardware scan.
+    [
       ./hardware-configuration.nix
-      ../packages/basic.nix
-      ../packages/browsers.nix
-      ../packages/version-control.nix
-      ../packages/editors.nix
-      ../packages/media.nix
-      ../packages/build.nix
-      ../packages/networking.nix
-      ../packages/math.nix
-      ../packages/misc.nix
-      ../admin-aristid.nix
-      ../nix-cfg.nix
-      ../keyboards.nix
+      ../common/packages/basic.nix
+      ../common/packages/browsers.nix
+      ../common/packages/version-control.nix
+      ../common/packages/editors.nix
+      ../common/packages/media.nix
+      ../common/packages/build.nix
+      ../common/packages/networking.nix
+      ../common/packages/math.nix
+      ../common/packages/misc.nix
+      ../common/admin-aristid.nix
+      ../common/nix-cfg.nix
+      ../common/keyboards.nix
     ];
 
   boot.loader.grub = { enable = true;

@@ -1,6 +1,8 @@
 { config, ... }:
 
-let sshKeyFiles = [ ../ssh/mba_rsa.pub ../ssh/medusa_rsa.pub ../ssh/nixstick.pub ]; in
+let sshKeyFiles = [ ../../ssh/mba_rsa.pub
+                    ../../ssh/medusa_rsa.pub
+                    ../../ssh/nixstick.pub ]; in
 {
   users.extraUsers = { root = { openssh.authorizedKeys.keyFiles = sshKeyFiles; };
                        aristid = { createUser = true;
