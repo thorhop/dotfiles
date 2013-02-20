@@ -12,6 +12,7 @@
       ../common/packages/build.nix
       ../common/packages/networking.nix
       ../common/packages/math.nix
+      ../common/packages/graphics.nix
       ../common/packages/misc.nix
       ../common/gnupg.nix
       ../common/admin-aristid.nix
