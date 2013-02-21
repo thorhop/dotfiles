@@ -41,26 +41,13 @@
 
   networking = { hostName = "medusa"; };
 
-  fileSystems =
-    [ { mountPoint = "/";
-        label = "medusa-root"; }
+  fileSystems."/".label = "medusa-root";
+  fileSystems."/boot".label = "medusa-boot";
+  fileSystems."/home".label = "medusa-home";
+  fileSystems."/data".label = "medusa-data";
+  fileSystems."/blobby".label = "medusa-blobby";
 
-      { mountPoint = "/boot";
-        label = "medusa-boot"; }
-
-      { mountPoint = "/home";
-        label = "medusa-home"; }
-
-      { mountPoint = "/data";
-        label = "medusa-data"; }
-
-      { mountPoint = "/blobby";
-        label = "medusa-blobby"; }
-    ];
-
-  swapDevices =
-    [ { label = "medusa-swap"; }
-    ];
+  swapDevices = [ { label = "medusa-swap"; }];
 
   users.primaryUser = "aristid";
 
