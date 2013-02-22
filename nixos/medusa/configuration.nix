@@ -105,6 +105,8 @@
                     dropbox
                     pythonFull
                     pydb
+                    libnotify
+                    xfce.xfce4_notifyd
                   ];
                   pathsToLink = ["/share/doc" "/etc/gconf"];
                   etc = [ { source = ../../screenrc; target = "screenrc"; } ];
