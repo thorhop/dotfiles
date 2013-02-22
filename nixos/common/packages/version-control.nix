@@ -5,5 +5,5 @@ let myGit = if config.services.xserver.enable
             else pkgs.gitSVN;
 in
 {
-  environment.systemPackages = with pkgs; [ myGit subversion mercurial ];
+  environment.systemPackages = with pkgs; [ myGit subversion mercurial cvs ];
 }
