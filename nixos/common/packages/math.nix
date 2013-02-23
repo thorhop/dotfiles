@@ -2,5 +2,5 @@
 
 {
   environment.systemPackages = with pkgs;
-                               [ bc units rLang ];
+                               [ bc units rLang gnuplot ];
 }

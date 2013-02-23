@@ -5,5 +5,7 @@
                                [ mplayer
                                  mpg123
                                  vlc
+                                 lame
+                                 abcde
                                ];
 }
