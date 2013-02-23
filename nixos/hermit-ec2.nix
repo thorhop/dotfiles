@@ -6,6 +6,7 @@
               ./common/packages/browsers.nix
               ./common/packages/version-control.nix
               ./common/packages/editors.nix
+              ./common/packages/build.nix
               ./common/admin-aristid.nix
               ./common/nix-cfg.nix
             ];
