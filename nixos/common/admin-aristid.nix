@@ -2,7 +2,8 @@
 
 let sshKeyFiles = [ ../../ssh/mba_rsa.pub
                     ../../ssh/medusa_rsa.pub
-                    ../../ssh/nixstick.pub ]; in
+                    ../../ssh/nixstick.pub
+                    ../../ssh/ipad_dsa.pub ]; in
 {
   users.extraUsers = { root = { openssh.authorizedKeys.keyFiles = sshKeyFiles; };
                        aristid = { createUser = true;
