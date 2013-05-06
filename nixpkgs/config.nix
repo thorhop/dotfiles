@@ -12,13 +12,15 @@ pkgs : {
     ftb = pkgs.callPackage ./packages/ftb.nix { };
     technicpack = pkgs.callPackage ./packages/technicpack.nix { };
 
+    xtest = haskell.envGhcAws;
+
     osxEnv = pkgs.buildEnv {
       name = "osx-env";
       paths = with pkgs; [ haskell.ghcDef
                            haskell.envGhcAws
                            #haskellGhc76.envGhcDef
                            haskellGhc76.envGhcAws
-                           haskell.envGhcStackage
+                           #haskell.envGhcStackage
                            bup ];
     };
 

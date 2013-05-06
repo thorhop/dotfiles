@@ -56,24 +56,26 @@ rec {
           repa
         ]);
 
+  llvmNotOnDarwin = if builtins.currentSystem == "x86_64-darwin" then [] else [ pkgs.llvm ];
+
   envGhcPlatform = pkgs.myEnvFun {
     name = "ghc-platform-${version}";
-    buildInputs = [ ghcPlatform pkgs.llvm ];
+    buildInputs = [ ghcPlatform ] ++ llvmNotOnDarwin;
   };
 
   envGhcDef = pkgs.myEnvFun {
     name = "ghc-def-${version}";
-    buildInputs = [ ghcDef pkgs.llvm ];
+    buildInputs = [ ghcDef ] ++ llvmNotOnDarwin;
   };
 
   envGhcAws = pkgs.myEnvFun {
     name = "ghc-aws-${version}";
-    buildInputs = [ ghcAws pkgs.llvm ];
+    buildInputs = [ ghcAws ] ++ llvmNotOnDarwin;
   };
 
   envGhcCabalDev = pkgs.myEnvFun {
     name = "ghc-cabal-dev-${version}";
-    buildInputs = [ ghcCabalDev pkgs.llvm ];
+    buildInputs = [ ghcCabalDev ] ++ llvmNotOnDarwin;
   };
 
   envGhcStackage = pkgs.myEnvFun {
@@ -86,6 +88,6 @@ rec {
 
   envGhcRepa = pkgs.myEnvFun {
     name = "ghc-repa-${version}";
-    buildInputs = [ ghcRepa pkgs.llvm ];
+    buildInputs = [ ghcRepa ] ++ llvmNotOnDarwin;
   };
 }
