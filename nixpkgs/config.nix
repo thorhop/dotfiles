@@ -27,8 +27,8 @@ pkgs : {
     hermitEnv = pkgs.buildEnv {
       name = "hermit-env";
       paths = with pkgs; [ haskell.ghcDef
-                           haskell.envGhcAws
-                           haskellGhc76.envGhcAws
+                           #haskell.envGhcAws
+                           #haskellGhc76.envGhcAws
                            weechat
                            ncdu ];
     };
@@ -46,11 +46,9 @@ pkgs : {
                            haskell.ghcDef
                            haskell.envGhcAws
                            haskell.envGhcPlatform
-                           haskell.envGhcCabalDev
                            #haskellGhc76.envGhcDef
                            haskellGhc76.envGhcAws
                            haskellGhc76.envGhcPlatform
-                           haskellGhc76.envGhcCabalDev
                            haskellGhc76.envGhcRepa
                            jre
                          ];

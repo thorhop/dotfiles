@@ -8,23 +8,21 @@ rec {
   ghcDef = hask.ghcWithPackages (self : with self;
         [
           haskellPlatform
-          Agda
 
-          cabalDev
-          ghcCore
+          #ghcCore
 
-          cryptohash
-          base64Bytestring
+          #cryptohash
+          #base64Bytestring
           lens
 
-          caseInsensitive
+          #caseInsensitive
 
-          criterion
-          testFramework
-          testFrameworkHunit
-          testFrameworkQuickcheck2
-          testFrameworkTh
-          hspec
+          #criterion
+          #testFramework
+          #testFrameworkHunit
+          #testFrameworkQuickcheck2
+          #testFrameworkTh
+          #hspec
         ]);
 
   ghcAws = hask.ghcWithPackages (self : with self;
@@ -48,8 +46,6 @@ rec {
           xmlConduit
         ]);
 
-  ghcCabalDev = hask.ghcWithPackages (self : with self; [ haskellPlatform MonadRandom setenv tar testFramework testFrameworkHunit ]);
-
   ghcRepa = hask.ghcWithPackages ( self : with self;
         [
           haskellPlatform
@@ -71,19 +67,6 @@ rec {
   envGhcAws = pkgs.myEnvFun {
     name = "ghc-aws-${version}";
     buildInputs = [ ghcAws ] ++ llvmNotOnDarwin;
-  };
-
-  envGhcCabalDev = pkgs.myEnvFun {
-    name = "ghc-cabal-dev-${version}";
-    buildInputs = [ ghcCabalDev ] ++ llvmNotOnDarwin;
-  };
-
-  envGhcStackage = pkgs.myEnvFun {
-    name = "ghc-stackage-${version}";
-    buildInputs = with hask;
-                  [ (ghcWithPackages (self : [ self.Cabal_1_16_0_3 ]))
-                    cabalInstall_1_16_0_2
-                    cabalDev ];
   };
 
   envGhcRepa = pkgs.myEnvFun {
