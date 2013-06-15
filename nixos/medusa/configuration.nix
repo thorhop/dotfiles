@@ -14,6 +14,7 @@
       ../common/packages/math.nix
       ../common/packages/graphics.nix
       ../common/packages/misc.nix
+      ../common/packages/documentation.nix
       ../common/gnupg.nix
       ../common/admin-aristid.nix
       ../common/nix-cfg.nix
@@ -92,8 +93,6 @@
                     mosh
                     unzip
                     lm_sensors
-                    manpages
-                    posix_man_pages
                     texLiveFull
                     libreoffice
                     skype

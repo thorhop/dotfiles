@@ -8,6 +8,7 @@
       ./hardware-configuration.nix
       ../common/admin-aristid.nix
       ../common/packages/basic.nix
+      ../common/packages/documentation.nix
     ];
 
   boot.initrd.kernelModules =
