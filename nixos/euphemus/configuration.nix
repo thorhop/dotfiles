@@ -1,4 +1,4 @@
-# vim: set expandtab:sw=2:
+# vim: set expandtab:sw=2:sts=2:
 
 { config, pkgs, ... }:
 
@@ -9,6 +9,8 @@
       ../common/admin-aristid.nix
       ../common/packages/basic.nix
       ../common/packages/documentation.nix
+      ../common/packages/editors.nix
+      ../common/packages/version-control.nix
     ];
 
   boot.initrd.kernelModules =
@@ -72,5 +74,9 @@
 
   environment.enableBashCompletion = true;
 
-  environment.systemPackages = with pkgs; [ lm_sensors ];
+  environment.systemPackages = with pkgs;
+    [
+      lm_sensors
+      dmidecode
+    ];
 }
