@@ -3,7 +3,6 @@
 let sshKeyFiles = [ ../../ssh/mba_rsa.pub
                     ../../ssh/medusa_rsa.pub
                     ../../ssh/nixstick.pub
-                    ../../ssh/ipad_dsa.pub
                     ../../ssh/euphemus_rsa.pub
                   ]; in
 {
