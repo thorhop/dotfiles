@@ -19,7 +19,7 @@ pkgs : {
       paths = with pkgs; [ haskell.ghcDef
                            haskell.envGhcAws
                            #haskellGhc76.envGhcDef
-                           haskellGhc76.envGhcAws
+                           #haskellGhc76.envGhcAws
                            #haskell.envGhcStackage
                            bup ];
     };
@@ -49,7 +49,7 @@ pkgs : {
                            #haskellGhc76.envGhcDef
                            haskellGhc76.envGhcAws
                            haskellGhc76.envGhcPlatform
-                           haskellGhc76.envGhcRepa
+                           #haskellGhc76.envGhcRepa
                            jre
                          ];
     };

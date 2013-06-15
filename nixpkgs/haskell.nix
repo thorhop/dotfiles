@@ -46,11 +46,11 @@ rec {
           xmlConduit
         ]);
 
-  ghcRepa = hask.ghcWithPackages ( self : with self;
-        [
-          haskellPlatform
-          repa
-        ]);
+  #ghcRepa = hask.ghcWithPackages ( self : with self;
+  #      [
+  #        haskellPlatform
+  #        repa
+  #      ]);
 
   llvmNotOnDarwin = if builtins.currentSystem == "x86_64-darwin" then [] else [ pkgs.llvm ];
 
@@ -69,8 +69,8 @@ rec {
     buildInputs = [ ghcAws ] ++ llvmNotOnDarwin;
   };
 
-  envGhcRepa = pkgs.myEnvFun {
-    name = "ghc-repa-${version}";
-    buildInputs = [ ghcRepa ] ++ llvmNotOnDarwin;
-  };
+  #envGhcRepa = pkgs.myEnvFun {
+  #  name = "ghc-repa-${version}";
+  #  buildInputs = [ ghcRepa ] ++ llvmNotOnDarwin;
+  #};
 }
