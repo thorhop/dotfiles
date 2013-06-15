@@ -66,10 +66,15 @@
   # Enable the X11 windowing system.
   services.xserver =
     {
-      enable = false;
+      enable = true;
       layout = "us";
       xkbVariant = "altgr-intl";
       xkbOptions = "eurosign:e";
+      desktopManager =
+        {
+          xterm.enable = true;
+          #default = "none";
+        };
     };
 
   environment.enableBashCompletion = true;
