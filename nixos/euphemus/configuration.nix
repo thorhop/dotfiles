@@ -54,6 +54,9 @@
   # Enable the OpenSSH daemon.
   services.openssh = { enable = true; };
 
+  # fcron
+  services.fcron = { enable = true; };
+
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
