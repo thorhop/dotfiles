@@ -69,5 +69,7 @@
       xkbOptions = "eurosign:e";
     };
 
+  environment.enableBashCompletion = true;
+
   environment.systemPackages = with pkgs; [ lm_sensors ];
 }
