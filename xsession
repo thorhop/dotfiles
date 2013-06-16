@@ -4,4 +4,4 @@
 #xpmroot ~/background.xpm &
 
 echo "Starting XMonad"
-exec xmonad
+exec dbus-launch --exit-with-session xmonad
