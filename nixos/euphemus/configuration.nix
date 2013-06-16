@@ -106,6 +106,14 @@
       dmidecode
     ];
 
-  hardware.pulseaudio.enable = true;
+  hardware.pulseaudio =
+    {
+      enable = true;
+      package = pkgs.pulseaudio.override {
+        useSystemd = true;
+        avahi = pkgs.avahi;
+      };
+    };
+
   sound.enableOSSEmulation = false;
 }
