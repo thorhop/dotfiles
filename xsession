@@ -11,6 +11,8 @@ trayer --edge top --align right --SetDockType true --SetPartialStrut true \
 # notifications
 dunst&
 
+dropbox&
+
 export BROWSER=chromium
 
 echo "Starting XMonad"
