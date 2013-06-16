@@ -74,8 +74,8 @@
       xkbOptions = "eurosign:e";
       desktopManager =
         {
-          xterm.enable = true;
-          #default = "none";
+          xterm.enable = false;
+          default = "none";
         };
     };
 
