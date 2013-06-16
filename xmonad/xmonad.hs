@@ -6,6 +6,8 @@ import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import System.IO
 
+myterminal = "urxvt"
+
 main = do xmobarp <- spawnPipe "xmobar"
           xmonad $ defaultConfig
               { modMask = mod4Mask -- "Windows" key
@@ -15,4 +17,5 @@ main = do xmobarp <- spawnPipe "xmobar"
                             { ppOutput = hPutStrLn xmobarp
                             , ppTitle = xmobarColor "green" "" . shorten 80
                             }
+              , terminal = myterminal
               }

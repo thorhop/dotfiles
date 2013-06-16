@@ -1,6 +1,10 @@
 #!/run/current-system/sw/bin/bash
 
+DOTFILES=~/dotfiles
+
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
+
+xrdb -merge $DOTFILES/urxvt.x11
 
 xsetroot -solid midnightblue
 
