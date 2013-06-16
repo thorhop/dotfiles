@@ -104,6 +104,18 @@
     [
       lm_sensors
       dmidecode
+      mosh
+      # desktop stuff
+      dunst
+      libnotify
+      dropbox
+      scrot
+      trayer
+      xlibs.xmessage
+      haskellPackages.xmobar
+      dropbox
+      keepassx
+      rxvt_unicode
     ];
 
   hardware.pulseaudio =
