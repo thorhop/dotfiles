@@ -1,4 +1,4 @@
-# vim: set expandtab:sw=2:sts=2:
+# vim: set expandtab:sw=2:sts=2:ai:
 
 { config, pkgs, ... }:
 
@@ -6,6 +6,7 @@
   require =
     [
       ./hardware-configuration.nix
+      ../common/nix-cfg.nix
       ../common/admin-aristid.nix
       ../common/packages/basic.nix
       ../common/packages/documentation.nix
@@ -30,6 +31,7 @@
       enable = true;
       version = 2;
       device = "/dev/sda";
+      memtest86 = true;
     };
 
   boot.kernelPackages = pkgs.linuxPackages_3_9;
