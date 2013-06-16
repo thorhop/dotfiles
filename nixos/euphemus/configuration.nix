@@ -49,12 +49,11 @@
     [ # { device = "/dev/disk/by-label/swap"; }
     ];
 
-  # Select internationalisation properties.
-  # i18n = {
-  #   consoleFont = "lat9w-16";
-  #   consoleKeyMap = "us";
-  #   defaultLocale = "en_US.UTF-8";
-  # };
+  i18n = {
+     consoleFont = "lat9w-16";
+     consoleKeyMap = "us";
+     defaultLocale = "de_DE.UTF-8";
+  };
 
   # List services that you want to enable:
 
@@ -63,6 +62,12 @@
 
   # fcron
   services.fcron = { enable = true; };
+
+  services.avahi =
+    {
+      enable = true;
+      nssmdns = true;
+    };
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -93,4 +98,7 @@
       lm_sensors
       dmidecode
     ];
+
+  hardware.pulseaudio.enable = true;
+  sound.enableOSSEmulation = false;
 }
