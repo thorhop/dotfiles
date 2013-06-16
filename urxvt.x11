@@ -1,3 +1,4 @@
+urxvt*font: xft:DejaVu Sans Mono:size=9
 urxvt*foreground: white
 urxvt*background: #2e3436
 
@@ -17,3 +18,5 @@ urxvt*background: #2e3436
 *color13: #AD7FA8
 *color14: #fcaf3e
 *color15: #EEEEEC
+
+urxvt.scrollstyle: plain
