@@ -91,6 +91,13 @@
         };
     };
 
+  fonts =
+    {
+      enableCoreFonts = true;
+      enableGhostscriptFonts = true;
+      extraFonts = with pkgs; [ dejavu_fonts inconsolata vistafonts lmodern unifont ];
+    };
+
   environment.enableBashCompletion = true;
 
   environment.systemPackages = with pkgs;
