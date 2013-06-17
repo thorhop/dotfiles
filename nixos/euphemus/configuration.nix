@@ -40,7 +40,8 @@
   boot.kernelPackages = pkgs.linuxPackages_3_9;
 
   networking.hostName = "euphemus"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables Wireless.
+
+  networking.wireless.enable = true;  # Enables Wireless.
 
   fileSystems."/" = { label = "euphemus-root"; };
   fileSystems."/boot" = { label = "euphemus-boot"; };
