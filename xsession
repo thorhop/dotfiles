@@ -4,6 +4,7 @@ DOTFILES=~/dotfiles
 
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
+xrdb -merge $DOTFILES/xft.x11
 xrdb -merge $DOTFILES/urxvt.x11
 
 xsetroot -solid midnightblue
