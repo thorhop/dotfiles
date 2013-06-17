@@ -14,6 +14,7 @@
       ../common/packages/editors.nix
       ../common/packages/version-control.nix
       ../common/packages/browsers.nix
+      ../common/packages/media.nix
     ];
 
   boot.initrd.kernelModules =
