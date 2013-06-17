@@ -2,8 +2,10 @@
 import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
-import XMonad.Util.Run(spawnPipe)
-import XMonad.Util.EZConfig(additionalKeys)
+import XMonad.Util.Run(spawnPipe, runInTerm)
+import XMonad.Util.EZConfig(additionalKeysP)
+import qualified XMonad.Prompt as P
+import qualified XMonad.Prompt.Shell as P
 import System.IO
 
 myterminal = "urxvt"
@@ -19,3 +21,17 @@ main = do xmobarp <- spawnPipe "xmobar"
                             }
               , terminal = myterminal
               }
+              `additionalKeysP`
+              [ ("M-p", P.shellPrompt P.defaultXPConfig)
+              , ("M-c", termPrompt P.defaultXPConfig)
+              ]
+
+data TermPrompt = TermPrompt
+
+instance P.XPrompt TermPrompt where
+    showXPrompt TermPrompt = "Terminal: "
+    completionToCommand _ = P.completionToCommand P.Shell
+
+termPrompt :: P.XPConfig -> X ()
+termPrompt c = do cmds <- io P.getCommands
+                  P.mkXPrompt TermPrompt c (P.getShellCompl cmds) (runInTerm "")
