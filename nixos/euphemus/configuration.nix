@@ -117,8 +117,17 @@
       xlibs.xmessage
       haskellPackages.xmobar
       dropbox
+      dropbox-cli
       keepassx
       rxvt_unicode
+      glxinfo
+      xlibs.xdpyinfo
+      lsof
+      ltrace
+      pavucontrol
+      smartmontools
+      xlibs.xclock
+      gnumake
     ];
 
   hardware.pulseaudio =
