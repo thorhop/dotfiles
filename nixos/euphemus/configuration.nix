@@ -128,6 +128,8 @@
       smartmontools
       xlibs.xclock
       gnumake
+      (haskellPackages.ghcWithPackages (self : with self;
+        [ xmonad xmonadContrib xmonadExtras ] ))
     ];
 
   hardware.pulseaudio =
