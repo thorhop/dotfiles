@@ -78,6 +78,7 @@
   services.xserver =
     {
       enable = true;
+      videoDrivers = [ "intel" "fbdev" ];
       layout = "us";
       xkbVariant = "altgr-intl";
       xkbOptions = "eurosign:e";
