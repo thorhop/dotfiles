@@ -6,6 +6,7 @@
   require =
     [
       ./hardware-configuration.nix
+      ./audio.nix
       ../common/nix-cfg.nix
       ../common/admin-aristid.nix
       ../common/gnupg.nix
@@ -124,22 +125,10 @@
       xlibs.xdpyinfo
       lsof
       ltrace
-      pavucontrol
       smartmontools
       xlibs.xclock
       gnumake
       (haskellPackages.ghcWithPackages (self : with self;
         [ xmonad xmonadContrib xmonadExtras ] ))
     ];
-
-  hardware.pulseaudio =
-    {
-      enable = true;
-      package = pkgs.pulseaudio.override {
-        useSystemd = true;
-        avahi = pkgs.avahi;
-      };
-    };
-
-  sound.enableOSSEmulation = false;
 }
