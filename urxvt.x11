@@ -1,4 +1,4 @@
-urxvt*font: xft:DejaVu Sans Mono:size=8
+urxvt*font: xft:DejaVu Sans Mono:size=9
 urxvt*foreground: white
 urxvt*background: #2e3436
 
