@@ -11,6 +11,7 @@
       package = pkgs.pulseaudio.override {
         useSystemd = true;
         avahi = pkgs.avahi;
+        bluez = pkgs.bluez;
       };
     };
 
