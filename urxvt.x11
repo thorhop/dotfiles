@@ -1,6 +1,11 @@
-urxvt*font: xft:DejaVu Sans Mono:size=9
-urxvt*foreground: white
-urxvt*background: #2e3436
+URxvt.font: xft:DejaVu Sans Mono:size=9
+URxvt.foreground: white
+URxvt.background: black
+URxvt.scrollstyle: plain
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: chromium
+URxvt.matcher.button: 1
+URxvt.colorUL: #4682B4
 
 *color0:  #2E3436
 *color1:  #a40000
@@ -18,5 +23,3 @@ urxvt*background: #2e3436
 *color13: #AD7FA8
 *color14: #fcaf3e
 *color15: #EEEEEC
-
-urxvt.scrollstyle: plain
