@@ -82,7 +82,7 @@
       videoDrivers = [ "intel" "fbdev" ];
       layout = "us";
       xkbVariant = "altgr-intl";
-      xkbOptions = "eurosign:e";
+      xkbOptions = "eurosign:e, compose:menu";
       displayManager =
         {
           slim.enable = false;
