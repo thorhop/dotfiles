@@ -14,7 +14,6 @@
       ../common/packages/documentation.nix
       ../common/packages/editors.nix
       ../common/packages/version-control.nix
-      ../common/packages/browsers.nix
       ../common/packages/media.nix
     ];
 
@@ -130,5 +129,7 @@
       gnumake
       (haskellPackages.ghcWithPackages (self : with self;
         [ xmonad xmonadContrib xmonadExtras ] ))
+      chromiumDevWrapper
+      firefoxWrapper
     ];
 }
