@@ -3,7 +3,7 @@ import XMonad
 import qualified XMonad.StackSet as W
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
-import XMonad.Hooks.ManageHelpers (isFullscreen, doFullFloat)
+import XMonad.Hooks.ManageHelpers
 import XMonad.Util.Run(spawnPipe, runInTerm)
 import XMonad.Util.EZConfig(additionalKeysP)
 import qualified XMonad.Prompt as P
@@ -16,7 +16,7 @@ myterminal = "urxvt"
 main = do xmobarp <- spawnPipe "xmobar"
           xmonad $ defaultConfig
               { modMask = mod4Mask -- "Windows" key
-              , manageHook = manageDocks <+> manageHook defaultConfig <+> (isFullscreen --> doF W.focusDown <+> doFullFloat)
+              , manageHook = myManageHook
               , layoutHook = smartBorders $ avoidStruts $ layoutHook defaultConfig
               , logHook = dynamicLogWithPP xmobarPP
                             { ppOutput = hPutStrLn xmobarp
@@ -28,6 +28,20 @@ main = do xmobarp <- spawnPipe "xmobar"
               [ ("M-p", P.shellPrompt P.defaultXPConfig)
               , ("M-c", termPrompt P.defaultXPConfig)
               ]
+
+myManageHook = composeAll
+    [ manageDocks
+    , composeOne
+        [
+          firefoxHook
+        , isFullscreen -?> (doF W.focusDown <+> doFullFloat)
+        ]
+    , manageHook defaultConfig
+    ]
+    where firefoxHook = className =? "Firefox" <&&>
+                        stringProperty "WM_WINDOW_ROLE" /=? "browser"
+                        -?> doCenterFloat
+
 
 data TermPrompt = TermPrompt
 
