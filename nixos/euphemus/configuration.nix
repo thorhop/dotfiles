@@ -96,6 +96,8 @@
         };
     };
 
+  services.dbus.packages = [ pkgs.gnome.GConf ];
+
   fonts =
     {
       enableCoreFonts = true;
@@ -133,5 +135,9 @@
         [ xmonad xmonadContrib xmonadExtras ] ))
       chromiumDevWrapper
       firefoxWrapper
+      gnome.GConf
+      gnucash
     ];
+
+  environment.pathsToLink = ["/share/doc" "/etc/gconf"];
 }
