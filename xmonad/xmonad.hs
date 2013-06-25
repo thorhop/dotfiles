@@ -29,18 +29,19 @@ main = do xmobarp <- spawnPipe "xmobar"
               , ("M-c", termPrompt P.defaultXPConfig)
               ]
 
+wmWindowRole = stringProperty "WM_WINDOW_ROLE"
+
 myManageHook = composeAll
     [ manageDocks
     , composeOne
         [
           firefoxHook
+        , wmWindowRole =? "GtkFileChooserDialog" -?> doCenterFloat
         , isFullscreen -?> (doF W.focusDown <+> doFullFloat)
         ]
     , manageHook defaultConfig
     ]
-    where firefoxHook = className =? "Firefox" <&&>
-                        stringProperty "WM_WINDOW_ROLE" /=? "browser"
-                        -?> doCenterFloat
+    where firefoxHook = className =? "Firefox" <&&> wmWindowRole /=? "browser" -?> doCenterFloat
 
 
 data TermPrompt = TermPrompt
