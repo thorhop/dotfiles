@@ -9,6 +9,9 @@ import XMonad.Util.EZConfig(additionalKeysP)
 import qualified XMonad.Prompt as P
 import qualified XMonad.Prompt.Shell as P
 import XMonad.Layout.NoBorders (smartBorders)
+import XMonad.Layout.Tabbed
+import XMonad.Layout.SubLayouts
+import XMonad.Layout.WindowNavigation
 import System.IO
 
 myterminal = "urxvt"
@@ -17,7 +20,7 @@ main = do xmobarp <- spawnPipe "xmobar"
           xmonad $ defaultConfig
               { modMask = mod4Mask -- "Windows" key
               , manageHook = myManageHook
-              , layoutHook = smartBorders $ avoidStruts $ layoutHook defaultConfig
+              , layoutHook = myLayout
               , logHook = dynamicLogWithPP xmobarPP
                             { ppOutput = hPutStrLn xmobarp
                             , ppTitle = xmobarColor "green" "" . shorten 80
@@ -26,8 +29,23 @@ main = do xmobarp <- spawnPipe "xmobar"
               }
               `additionalKeysP`
               [ ("M-p", P.shellPrompt P.defaultXPConfig)
-              , ("M-c", termPrompt P.defaultXPConfig)
+              , ("M-S-p", termPrompt P.defaultXPConfig)
+              , ("M-C-h", sendMessage $ pullGroup L)
+              , ("M-C-l", sendMessage $ pullGroup R)
+              , ("M-C-k", sendMessage $ pullGroup U)
+              , ("M-C-j", sendMessage $ pullGroup D)
+              , ("M-C-m", withFocused $ sendMessage . MergeAll)
+              , ("M-C-u", withFocused $ sendMessage . UnMerge)
+              , ("M-C-.", onGroup W.focusUp')
+              , ("M-C-,", onGroup W.focusDown')
               ]
+
+myLayout = smartBorders
+         $ avoidStruts
+         $ configurableNavigation (navigateColor "#ffff00")
+         $ subTabbed
+         $ layoutHook defaultConfig
+
 
 wmWindowRole = stringProperty "WM_WINDOW_ROLE"
 
