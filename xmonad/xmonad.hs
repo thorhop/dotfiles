@@ -12,6 +12,8 @@ import XMonad.Layout.NoBorders (smartBorders)
 import XMonad.Layout.Tabbed
 import XMonad.Layout.SubLayouts
 import XMonad.Layout.WindowNavigation
+import XMonad.Layout.Simplest
+import XMonad.Layout.BoringWindows
 import System.IO
 
 myterminal = "urxvt"
@@ -46,12 +48,16 @@ main = do xmobarp <- spawnPipe "xmobar"
               , ("M-C-u", withFocused $ sendMessage . UnMerge)
               , ("M-C-.", onGroup W.focusUp')
               , ("M-C-,", onGroup W.focusDown')
+              , ("M-j", focusDown)
+              , ("M-k", focusUp)
               ]
 
 myLayout = smartBorders
          $ avoidStruts
          $ configurableNavigation (navigateColor "#ffff00")
-         $ subTabbed
+         $ addTabs shrinkText defaultTheme
+         $ boringAuto
+         $ subLayout [] Simplest
          $ layoutHook defaultConfig
 
 
