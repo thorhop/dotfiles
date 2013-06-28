@@ -139,6 +139,7 @@
       gnome.GConf
       gnucash
       skype
+      evince
     ];
 
   environment.pathsToLink = ["/share/doc" "/etc/gconf"];
