@@ -137,6 +137,7 @@
       firefoxWrapper
       gnome.GConf
       gnucash
+      skype
     ];
 
   environment.pathsToLink = ["/share/doc" "/etc/gconf"];
