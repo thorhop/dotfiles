@@ -132,7 +132,8 @@
       xlibs.xclock
       gnumake
       (haskellPackages.ghcWithPackages (self : with self;
-        [ xmonad xmonadContrib xmonadExtras ] ))
+        [ xmonad xmonadContrib xmonadExtras
+          haskellPlatform ] ))
       chromiumDevWrapper
       firefoxWrapper
       gnome.GConf
