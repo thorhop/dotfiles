@@ -13,20 +13,23 @@ import XMonad.Layout.Tabbed
 import XMonad.Layout.SubLayouts
 import XMonad.Layout.WindowNavigation
 import XMonad.Layout.Simplest
-import XMonad.Layout.BoringWindows
+import XMonad.Actions.Submap
 import System.IO
 
 myterminal = "urxvt"
 
 main = do xmobarp <- spawnPipe "xmobar"
-          xmonad $ defaultConfig
+          xmonad (myConfig { logHook = dynamicLogWithPP xmobarPP
+                                { ppOutput = hPutStrLn xmobarp
+                                , ppTitle = xmobarColor "green" "" . shorten 80
+                                }
+                           })
+
+
+myConfig = defaultConfig
               { modMask = mod4Mask -- "Windows" key
               , manageHook = myManageHook
               , layoutHook = myLayout
-              , logHook = dynamicLogWithPP xmobarPP
-                            { ppOutput = hPutStrLn xmobarp
-                            , ppTitle = xmobarColor "green" "" . shorten 80
-                            }
               , terminal = myterminal
               }
               `additionalKeysP`
@@ -48,16 +51,16 @@ main = do xmobarp <- spawnPipe "xmobar"
               , ("M-C-u", withFocused $ sendMessage . UnMerge)
               , ("M-C-.", onGroup W.focusUp')
               , ("M-C-,", onGroup W.focusDown')
-              , ("M-j", focusDown)
-              , ("M-k", focusUp)
+              , ("M-C-<Space>", toSubl NextLayout)
+              , ("M-s", submap $ defaultSublMap myConfig)
               ]
+
 
 myLayout = smartBorders
          $ avoidStruts
          $ configurableNavigation (navigateColor "#ffff00")
          $ addTabs shrinkText defaultTheme
-         $ boringAuto
-         $ subLayout [] Simplest
+         $ subLayout [] (Simplest ||| Tall 1 0.2 0.5)
          $ layoutHook defaultConfig
 
 
