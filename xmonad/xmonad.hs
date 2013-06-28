@@ -30,6 +30,10 @@ main = do xmobarp <- spawnPipe "xmobar"
               `additionalKeysP`
               [ ("M-p", P.shellPrompt P.defaultXPConfig)
               , ("M-S-p", termPrompt P.defaultXPConfig)
+              , ("M-<L>", sendMessage $ Go L)
+              , ("M-<R>", sendMessage $ Go R)
+              , ("M-<U>", sendMessage $ Go U)
+              , ("M-<D>", sendMessage $ Go D)
               , ("M-C-h", sendMessage $ pullGroup L)
               , ("M-C-l", sendMessage $ pullGroup R)
               , ("M-C-k", sendMessage $ pullGroup U)
