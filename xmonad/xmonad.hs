@@ -13,6 +13,7 @@ import XMonad.Layout.Tabbed
 import XMonad.Layout.SubLayouts
 import XMonad.Layout.WindowNavigation
 import XMonad.Layout.Simplest
+import XMonad.Layout.BoringWindows
 import XMonad.Actions.Submap
 import System.IO
 
@@ -53,6 +54,9 @@ myConfig = defaultConfig
               , ("M-C-,", onGroup W.focusDown')
               , ("M-C-<Space>", toSubl NextLayout)
               , ("M-s", submap $ defaultSublMap myConfig)
+              , ("M-j", focusDown)
+              , ("M-k", focusUp)
+              , ("M-m", focusMaster)
               ]
 
 
@@ -60,6 +64,7 @@ myLayout = smartBorders
          $ avoidStruts
          $ configurableNavigation (navigateColor "#ffff00")
          $ addTabs shrinkText defaultTheme
+         $ boringAuto
          $ subLayout [] (Simplest ||| Tall 1 0.2 0.5)
          $ layoutHook defaultConfig
 
