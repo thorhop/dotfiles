@@ -11,6 +11,7 @@ pkgs : {
   rec {
     ftb = pkgs.callPackage ./packages/ftb.nix { };
     technicpack = pkgs.callPackage ./packages/technicpack.nix { };
+    minecraftLauncher = pkgs.callPackage ./packages/minecraft-launcher.nix { };
 
     xtest = haskell.envGhcAws;
 
