@@ -15,6 +15,7 @@ import XMonad.Layout.WindowNavigation
 import XMonad.Layout.Simplest
 import XMonad.Layout.BoringWindows
 import XMonad.Actions.Submap
+import XMonad.Hooks.SetWMName (setWMName)
 import System.IO
 
 myterminal = "urxvt"
@@ -32,6 +33,7 @@ myConfig = defaultConfig
               , manageHook = myManageHook
               , layoutHook = myLayout
               , terminal = myterminal
+              , startupHook = setWMName "LG3D" -- minecraft
               }
               `additionalKeysP`
               [ ("M-p", P.shellPrompt P.defaultXPConfig)
