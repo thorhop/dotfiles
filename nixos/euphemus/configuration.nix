@@ -7,12 +7,12 @@
     [
       ./hardware-configuration.nix
       ./audio.nix
+      ./editors.nix
       ../common/nix-cfg.nix
       ../common/admin-aristid.nix
       ../common/gnupg.nix
       ../common/packages/basic.nix
       ../common/packages/documentation.nix
-      ../common/packages/editors.nix
       ../common/packages/version-control.nix
       ../common/packages/media.nix
     ];
