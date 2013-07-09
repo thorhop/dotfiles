@@ -1,4 +1,4 @@
-# vim: set expandtab:sw=2:sts=2:ai:
+# vim: set expandtab:sw=2:sts=2:ai
 
 { config, pkgs, ... }:
 
@@ -124,6 +124,7 @@
       dropbox-cli
       keepassx
       rxvt_unicode
+      xsel
       glxinfo
       xlibs.xdpyinfo
       lsof
@@ -140,6 +141,7 @@
       gnucash
       skype
       evince
+      duplicity
     ];
 
   environment.pathsToLink = ["/share/doc" "/etc/gconf"];
