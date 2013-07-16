@@ -98,6 +98,8 @@
 
   services.dbus.packages = [ pkgs.gnome.GConf ];
 
+  services.upower = { enable = true; };
+
   fonts =
     {
       enableCoreFonts = true;
