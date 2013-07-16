@@ -18,6 +18,8 @@ dunst&
 
 dropbox&
 
+keepassx -min -lock&
+
 export BROWSER=chromium
 
 echo "Starting XMonad"
