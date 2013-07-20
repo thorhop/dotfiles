@@ -80,7 +80,8 @@
   services.xserver =
     {
       enable = true;
-      videoDrivers = [ "intel" "fbdev" ];
+      videoDrivers = [ "nvidia" "fbdev" ];
+      driSupport32Bit = true;
       layout = "us";
       xkbVariant = "altgr-intl";
       xkbOptions = "eurosign:e, compose:menu";
