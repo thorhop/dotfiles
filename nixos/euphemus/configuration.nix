@@ -37,7 +37,7 @@
       memtest86 = true;
     };
 
-  boot.kernelPackages = pkgs.linuxPackages_3_9;
+  boot.kernelPackages = pkgs.linuxPackages_aristid;
 
   networking.hostName = "euphemus"; # Define your hostname.
 

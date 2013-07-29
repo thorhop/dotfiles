@@ -55,5 +55,18 @@ pkgs : {
                            jre
                          ];
     };
+
+    linuxPackages_aristid = pkgs.linuxPackagesFor linux_aristid linuxPackages_aristid;
+
+    linux_aristid = pkgs.linux_3_10.override {
+      extraConfig = ''
+      '';
+      kernelPatches = [ pkgs.kernelPatches.sec_perm_2_6_24 logitech_hid_dj_fix ];
+    };
+
+    logitech_hid_dj_fix = {
+      name = "logitech_hid_dj_fix";
+      patch = ./patches/logitech_hid_dj_fix.patch;
+    };
   };
 }
