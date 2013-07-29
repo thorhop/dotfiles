@@ -51,6 +51,8 @@
     [ # { device = "/dev/disk/by-label/swap"; }
     ];
 
+  hardware.bluetooth = { enable = true; };
+
   i18n = {
      consoleFont = "lat9w-16";
      consoleKeyMap = "us";
