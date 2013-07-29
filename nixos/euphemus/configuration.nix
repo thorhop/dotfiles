@@ -139,7 +139,7 @@
       gnumake
       (haskellPackages.ghcWithPackages (self : with self;
         [ xmonad xmonadContrib xmonadExtras
-          haskellPlatform ] ))
+          haskellPlatform diagrams diagramsCairo ] ))
       chromiumDevWrapper
       firefoxWrapper
       gnome.GConf
