@@ -65,6 +65,8 @@ if has("autocmd")
 
   augroup END
 
+  autocmd FileType haskell setlocal tabstop=8 expandtab softtabstop=4 shiftwidth=4 smarttab shiftround nojoinspaces
+
 else
 
   set autoindent		" always set autoindenting on
