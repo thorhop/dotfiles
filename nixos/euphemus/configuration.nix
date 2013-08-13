@@ -39,6 +39,8 @@
 
   boot.kernelPackages = pkgs.linuxPackages_aristid;
 
+  boot.cleanTmpDir = true;
+
   networking.hostName = "euphemus"; # Define your hostname.
 
   networking.wireless.enable = true;  # Enables Wireless.
