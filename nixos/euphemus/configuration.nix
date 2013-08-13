@@ -1,4 +1,4 @@
-# vim: set expandtab:sw=2:sts=2:ai
+# vim: et:sw=2:sts=2:ai
 
 { config, pkgs, ... }:
 
@@ -23,10 +23,15 @@
       # "xfs" "ata_piix"
     ];
 
-  boot.initrd.luks.devices =
-    [
-      { name = "euphemus-main"; device = "/dev/sda3"; preLVM = true; allowDiscards = true; }
-    ];
+  boot.initrd.luks =
+    {
+      devices =
+        [
+          { name = "euphemus-main"; device = "/dev/sda3"; preLVM = true; allowDiscards = true; }
+        ];
+      cryptoModules =
+        [ "aes_x86_64" "cbc" "xts" "lrw" "sha256" "sha1" ];
+    };
     
   # Use the GRUB 2 boot loader.
   boot.loader.grub =
