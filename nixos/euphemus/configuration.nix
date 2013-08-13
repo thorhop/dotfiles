@@ -63,12 +63,12 @@
 
   # List services that you want to enable:
 
-  # Enable the OpenSSH daemon.
   services.openssh = { enable = true; };
+
+  services.udisks2 = { enable = true; };
 
   services.locate = { enable = true; };
 
-  # fcron
   services.fcron = { enable = true; };
 
   services.avahi =
