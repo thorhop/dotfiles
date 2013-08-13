@@ -3,6 +3,6 @@
 {
   environment.systemPackages = with pkgs; [
       emacs
-      (vim_configurable.override { source = "latest"; })
+      (vim_configurable)
     ];
 }
