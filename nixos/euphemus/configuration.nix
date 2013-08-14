@@ -126,6 +126,7 @@
       dmidecode
       mosh
       # desktop stuff
+      xdg_utils
       dunst
       libnotify
       dropbox
@@ -152,7 +153,7 @@
       gnucash
       skype
       evince
-      duplicity
+      unzip
     ];
 
   environment.pathsToLink = ["/share/doc" "/etc/gconf"];
