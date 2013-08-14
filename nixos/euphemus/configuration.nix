@@ -8,6 +8,7 @@
       ./hardware-configuration.nix
       ./audio.nix
       ./editors.nix
+      ./browsers.nix
       ../common/nix-cfg.nix
       ../common/admin-aristid.nix
       ../common/gnupg.nix
@@ -147,8 +148,6 @@
       (haskellPackages.ghcWithPackages (self : with self;
         [ xmonad xmonadContrib xmonadExtras
           haskellPlatform diagrams diagramsCairo ] ))
-      chromiumDevWrapper
-      firefoxWrapper
       gnome.GConf
       gnucash
       skype

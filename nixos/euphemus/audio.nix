@@ -3,7 +3,7 @@
 { pkgs, config, ... }:
 
 {
-  environment.systemPackages = [ pkgs.pavucontrol ];
+  environment.systemPackages = [ pkgs.pavucontrol pkgs.pa_applet ];
 
   hardware.pulseaudio =
     {
