@@ -61,12 +61,17 @@ pkgs : {
     linux_aristid = pkgs.linux_3_10.override {
       extraConfig = ''
       '';
-      kernelPatches = [ pkgs.kernelPatches.sec_perm_2_6_24 logitech_hid_dj_fix ];
+      kernelPatches = [ pkgs.kernelPatches.sec_perm_2_6_24 logitech_hid_dj_fix btusb_bcm_belkin ];
     };
 
     logitech_hid_dj_fix = {
       name = "logitech_hid_dj_fix";
       patch = ./patches/logitech_hid_dj_fix.patch;
+    };
+
+    btusb_bcm_belkin = {
+      name = "btusb_bcm_belkin";
+      patch = ./patches/btusb.patch;
     };
   };
 }
