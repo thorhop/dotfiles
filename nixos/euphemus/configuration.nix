@@ -33,6 +33,11 @@
       cryptoModules =
         [ "aes_x86_64" "cbc" "xts" "lrw" "sha256" "sha1" ];
     };
+
+  boot.initrd.postMountCommands = ''
+    cryptsetup luksOpen /dev/disk/by-uuid/3cf298f7-3dfb-4104-a2db-4aff6e04705c rustluks --key-file=/mnt-root/root/keys/luks1 &>/mnt-root/root/luks1.log
+    lvm vgchange -ay spinner
+    '';
     
   # Use the GRUB 2 boot loader.
   boot.loader.grub =
@@ -54,6 +59,7 @@
   fileSystems."/" = { label = "euphemus-root"; };
   fileSystems."/boot" = { label = "euphemus-boot"; };
   fileSystems."/home" = { label = "euphemus-home"; };
+  fileSystems."/bulk" = { label = "patina"; };
 
   swapDevices =
     [ # { device = "/dev/disk/by-label/swap"; }
