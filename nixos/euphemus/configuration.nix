@@ -81,8 +81,6 @@
 
   services.locate = { enable = true; };
 
-  services.fcron = { enable = true; };
-
   services.avahi =
     {
       enable = true;
