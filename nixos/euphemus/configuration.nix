@@ -67,6 +67,9 @@
 
   hardware.bluetooth = { enable = true; };
 
+  hardware.sane = { enable = true; };
+  users.extraUsers.aristid.extraGroups = [ "scanner" ];
+
   i18n = {
      consoleFont = "lat9w-16";
      consoleKeyMap = "us";
@@ -81,14 +84,19 @@
 
   services.locate = { enable = true; };
 
+  services.fcron = { enable = true; };
+
   services.avahi =
     {
       enable = true;
       nssmdns = true;
     };
 
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
+  services.printing =
+    {
+      enable = true;
+      drivers = with pkgs; [ hplip ghostscript gutenprint cups_pdf_filter ];
+    };
 
   # Enable the X11 windowing system.
   services.xserver =
@@ -103,6 +111,7 @@
         {
           slim.enable = false;
           kdm.enable = true;
+          desktopManagerHandlesLidAndPower = false;
         };
       desktopManager =
         {
@@ -152,12 +161,17 @@
       gnumake
       (haskellPackages.ghcWithPackages (self : with self;
         [ xmonad xmonadContrib xmonadExtras
-          haskellPlatform diagrams diagramsCairo ] ))
+          haskellPlatform diagrams diagramsCairo pipes ] ))
       gnome.GConf
       gnucash
       skype
       evince
       unzip
+      ncdu
+      ncftp
+      libreoffice
+      hplip
+      xsane
     ];
 
   environment.pathsToLink = ["/share/doc" "/etc/gconf"];

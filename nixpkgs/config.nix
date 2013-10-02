@@ -10,6 +10,8 @@ pkgs : {
         haskellGhc76 = haskellGen (pkgs.haskellPackages_ghc762);
     in
   rec {
+    bluez = pkgs.bluez5;
+
     ftb = pkgs.callPackage ./packages/ftb.nix { };
     technicpack = pkgs.callPackage ./packages/technicpack.nix { };
     minecraftLauncher = pkgs.callPackage ./packages/minecraft-launcher.nix { };
@@ -58,10 +60,14 @@ pkgs : {
 
     linuxPackages_aristid = pkgs.linuxPackagesFor linux_aristid linuxPackages_aristid;
 
-    linux_aristid = pkgs.linux_3_10.override {
+    linux_aristid = pkgs.linux_3_11.override {
       extraConfig = ''
       '';
-      kernelPatches = [ pkgs.kernelPatches.sec_perm_2_6_24 logitech_hid_dj_fix btusb_bcm_belkin ];
+      kernelPatches = [
+        pkgs.kernelPatches.sec_perm_2_6_24
+        # logitech_hid_dj_fix
+        btusb_bcm_belkin
+      ];
     };
 
     logitech_hid_dj_fix = {
