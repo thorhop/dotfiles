@@ -89,7 +89,8 @@
       enable = true;
       systemCronJobs =
         [
-          "0 * * * * root ${pkgs.rsnapshot}/bin/rsnapshot -c /etc/rsnapshot.conf hourly"
+          "10 * * * * root ${pkgs.rsnapshot}/bin/rsnapshot -c /etc/rsnapshot.conf sync"
+          "20 * * * * root ${pkgs.rsnapshot}/bin/rsnapshot -c /etc/rsnapshot.conf hourly"
           "50 21 * * * root ${pkgs.rsnapshot}/bin/rsnapshot -c /etc/rsnapshot.conf daily"
           "40 21 * * 6 root ${pkgs.rsnapshot}/bin/rsnapshot -c /etc/rsnapshot.conf weekly"
           "30 21 1 * * root ${pkgs.rsnapshot}/bin/rsnapshot -c /etc/rsnapshot.conf monthly"
