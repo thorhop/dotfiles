@@ -38,7 +38,7 @@
     cryptsetup luksOpen /dev/disk/by-uuid/3cf298f7-3dfb-4104-a2db-4aff6e04705c rustluks --key-file=/mnt-root/root/keys/luks1 &>/mnt-root/root/luks1.log
     lvm vgchange -ay spinner
     '';
-    
+
   # Use the GRUB 2 boot loader.
   boot.loader.grub =
     {
@@ -84,7 +84,19 @@
 
   services.locate = { enable = true; };
 
-  services.fcron = { enable = true; };
+  services.cron =
+    {
+      enable = true;
+      systemCronJobs =
+        [
+          "0 * * * * ${pkgs.rsnapshot}/bin/rsnapshot -c /etc/rsnapshot.conf hourly"
+          "50 21 * * * ${pkgs.rsnapshot}/bin/rsnapshot -c /etc/rsnapshot.conf daily"
+          "40 21 * * 6 ${pkgs.rsnapshot}/bin/rsnapshot -c /etc/rsnapshot.conf weekly"
+          "30 21 1 * * ${pkgs.rsnapshot}/bin/rsnapshot -c /etc/rsnapshot.conf monthly"
+        ];
+    };
+
+  environment.etc."rsnapshot.conf" = { source = ./rsnapshot.conf; };
 
   services.avahi =
     {
@@ -131,7 +143,7 @@
       extraFonts = with pkgs; [ dejavu_fonts inconsolata vistafonts lmodern unifont ];
     };
 
-  environment.enableBashCompletion = true;
+  programs.bash.enableCompletion = true;
 
   environment.systemPackages = with pkgs;
     [
@@ -172,6 +184,7 @@
       libreoffice
       hplip
       xsane
+      rsnapshot
     ];
 
   environment.pathsToLink = ["/share/doc" "/etc/gconf"];
