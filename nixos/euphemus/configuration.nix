@@ -97,7 +97,14 @@
         ];
     };
 
-  environment.etc."rsnapshot.conf" = { source = ./rsnapshot.conf; };
+  environment.etc."rsnapshot.conf" =
+    { source = pkgs.substituteAll
+                {
+                  src = ./rsnapshot.conf;
+                  inherit (pkgs) coreutils rsync openssh;
+                  inherit (pkgs) inetutils rsnapshot;
+                };
+    };
 
   services.avahi =
     {
