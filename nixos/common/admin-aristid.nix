@@ -6,7 +6,7 @@ let sshKeyFiles = [ ../../ssh/mba_rsa.pub
                     ../../ssh/euphemus_rsa.pub
                   ]; in
 {
-  users.extraUsers = { root = { openssh.authorizedKeys.keyFiles = sshKeyFiles; };
+  users.extraUsers = { root = { openssh.authorizedKeys.keyFiles = sshKeyFiles ++ [ ../../ssh/euphemus_root.pub ]; };
                        aristid = { createUser = true;
                                    createHome = true;
                                    description = "Aristid Breitkreuz";
