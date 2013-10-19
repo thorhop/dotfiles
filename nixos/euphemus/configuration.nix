@@ -170,9 +170,11 @@
       smartmontools
       xlibs.xclock
       gnumake
+      # TODO: make proper haskell environments
+      # also: C++ environments
       (haskellPackages.ghcWithPackages (self : with self;
         [ xmonad xmonadContrib xmonadExtras
-          haskellPlatform diagrams diagramsCairo pipes ] ))
+          haskellPlatform diagrams diagramsCairo pipes criterion ] ))
       gnome.GConf
       gnucash
       skype
