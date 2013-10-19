@@ -84,27 +84,18 @@
 
   services.locate = { enable = true; };
 
-  services.cron =
+  services.rsnapshot =
     {
       enable = true;
-      systemCronJobs =
-        [
-          "10 * * * * root ${pkgs.rsnapshot}/bin/rsnapshot -c /etc/rsnapshot.conf sync"
-          "20 * * * * root ${pkgs.rsnapshot}/bin/rsnapshot -c /etc/rsnapshot.conf hourly"
-          "50 21 * * * root ${pkgs.rsnapshot}/bin/rsnapshot -c /etc/rsnapshot.conf daily"
-          "40 21 * * 6 root ${pkgs.rsnapshot}/bin/rsnapshot -c /etc/rsnapshot.conf weekly"
-          "30 21 1 * * root ${pkgs.rsnapshot}/bin/rsnapshot -c /etc/rsnapshot.conf monthly"
-        ];
+      extraConfig = builtins.readFile ./rsnapshot.conf;
+      cronIntervals = { sync = "10 * * * *";
+                        hourly = "20 * * * *";
+                        daily = "50 21 * * *";
+                        weekly = "40 21 * * 6";
+                        monthly = "30 21 1 * *"; };
     };
 
-  environment.etc."rsnapshot.conf" =
-    { source = pkgs.substituteAll
-                {
-                  src = ./rsnapshot.conf;
-                  inherit (pkgs) coreutils rsync openssh;
-                  inherit (pkgs) inetutils rsnapshot;
-                };
-    };
+  services.cron = { enable = true; };
 
   services.avahi =
     {
