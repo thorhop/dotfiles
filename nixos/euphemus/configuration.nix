@@ -50,6 +50,8 @@
 
   boot.kernelPackages = pkgs.linuxPackages_aristid;
 
+  boot.kernelModules = [ "coretemp" "nct6775" ];
+
   boot.cleanTmpDir = true;
 
   networking.hostName = "euphemus"; # Define your hostname.
