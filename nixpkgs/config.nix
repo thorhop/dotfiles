@@ -16,6 +16,8 @@ pkgs : {
     technicpack = pkgs.callPackage ./packages/technicpack.nix { };
     minecraftLauncher = pkgs.callPackage ./packages/minecraft-launcher.nix { };
 
+    config.cabal.libraryProfiling = true;
+
     xtest = haskell.envGhcAws;
 
     osxEnv = pkgs.buildEnv {
