@@ -2,6 +2,7 @@
 
 { config, pkgs, ... }:
 
+let linPack = pkgs.linuxPackages_aristid; in
 {
   require =
     [
@@ -48,7 +49,7 @@
       memtest86 = true;
     };
 
-  boot.kernelPackages = pkgs.linuxPackages_aristid;
+  boot.kernelPackages = linPack;
 
   boot.kernelModules = [ "coretemp" "nct6775" ];
 
@@ -181,7 +182,7 @@
       # also: C++ environments
       (haskellPackages.ghcWithPackagesOld (self : with self;
         [ xmonad xmonadContrib xmonadExtras
-          haskellPlatform diagrams diagramsCairo pipes criterion ] ))
+          haskellPlatform pipes criterion either ] ))
       gnome.GConf
       gnucash
       skype
@@ -193,6 +194,29 @@
       hplip
       xsane
       rsnapshot
+      openssl
+      cudatoolkit
+      valgrind
+      kde4.kcachegrind
+      anki
+      darcs
+      R
+      coq
+      ctags
+      imagemagick
+      gdb
+      sshuttle
+      pwgen
+      xlibs.xmodmap
+      nmap
+      iptables
+      graphviz
+      linPack.perf
+      pythonFull
+      fio
+      llvm
+      gdb
+      gcc
     ];
 
   environment.pathsToLink = ["/share/doc" "/etc/gconf"];
