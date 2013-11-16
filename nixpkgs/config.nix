@@ -62,7 +62,7 @@ pkgs : {
 
     linuxPackages_aristid = pkgs.linuxPackagesFor linux_aristid linuxPackages_aristid;
 
-    linux_aristid = pkgs.linux_3_11.override {
+    linux_aristid = pkgs.linux_3_12.override {
       extraConfig = ''
       '';
       kernelPatches = [
