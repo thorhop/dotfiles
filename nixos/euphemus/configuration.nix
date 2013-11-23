@@ -184,7 +184,7 @@ let linPack = pkgs.linuxPackages_aristid; in
       # also: C++ environments
       (haskellPackages.ghcWithPackagesOld (self : with self;
         [ xmonad xmonadContrib xmonadExtras
-          haskellPlatform pipes criterion either ] ))
+          haskellPlatform pipes criterion either cryptohash ] ))
       gnome.GConf
       gnucash
       skype
