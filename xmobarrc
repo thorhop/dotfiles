@@ -4,13 +4,14 @@ Config {
 , fgColor = "grey"
 , position = TopW L 90
 , commands = [ Run Weather "EHAM" ["-t"," AMS:<tempC>C","-L","15","-H","25","--normal","green","--high","red","--low","lightblue"] 36000
-	    , Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
-	    , Run Memory ["-t","Mem: <usedratio>%"] 10
-	    , Run Swap [] 10
+	    , Run Wireless "wifi0" ["-t","<essid> <qualitybar>"] 10
+	    , Run MultiCpu ["-t","Cpu: <total>%","-L","3","-H","50","--normal","green","--high","red"] 10
+	    , Run CoreTemp ["-t", "<core0>C <core1>C <core2>C <core3>C <core4>C"] 10
+	    , Run Memory ["-t","Mem: <usedratio>% (c<cache>M)"] 10
 	    , Run Date "%Y-%m-%d %H:%M:%S" "date" 10
 	    , Run StdinReader
 	    ]
 , sepChar = "%"
 , alignSep = "}{"
-, template = "%StdinReader% }{ %cpu% | %memory% * %swap%    <fc=#ee9a00>%date%</fc> | %EHAM% "
+, template = "%StdinReader% }{ %wifi0wi% | %multicpu% %coretemp% | %memory%    <fc=#ee9a00>%date%</fc> | %EHAM% "
 }

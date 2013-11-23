@@ -139,6 +139,8 @@ let linPack = pkgs.linuxPackages_aristid; in
   services.upower = { enable = true; };
 
   services.udev.extraRules = ''
+    ATTR{address}=="d4:3d:7e:b8:94:c3", NAME="wired0"
+    ATTR{address}=="00:0c:f6:e6:95:9b", NAME="wifi0"
     SUBSYSTEM=="usb", ATTR{idVendor}=="04e8", MODE="0666", GROUP="users"
     SUBSYSTEM=="usb", ATTR{idVendor}=="1004", MODE="0666", GROUP="users"
     '';
