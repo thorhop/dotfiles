@@ -123,8 +123,8 @@ let linPack = pkgs.linuxPackages_aristid; in
       xkbOptions = "eurosign:e, compose:menu";
       displayManager =
         {
-          slim.enable = false;
-          kdm.enable = true;
+          slim.enable = true;
+          kdm.enable = false;
           desktopManagerHandlesLidAndPower = false;
         };
       desktopManager =
