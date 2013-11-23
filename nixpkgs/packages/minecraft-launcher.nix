@@ -1,12 +1,12 @@
 {stdenv, fetchurl, jre, libX11, libXext, libXcursor, libXrandr, libXxf86vm
-, mesa, openal, alsaOss }:
+, mesa, openal, alsaOss}:
 
 stdenv.mkDerivation {
   name = "minecraft-launcher-1.0";
 
   src = fetchurl {
     url = "https://s3.amazonaws.com/Minecraft.Download/launcher/Minecraft.jar";
-    sha256 = "1y0df4yrf48ilnbvzx0s0c1shkwf783r1ra5d1yva55v343swdmx";
+    sha256 = "04pj4l5q0a64jncm2kk45r7nxnxa2z9n110dcxbbahdi6wk0png8";
   };
 
   phases = "installPhase";
