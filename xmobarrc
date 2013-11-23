@@ -1,6 +1,6 @@
 Config {
   font = "xft:DejaVu Sans Mono:pixelsize=13"
-, bgColor = "black"
+, bgColor = "#191950"
 , fgColor = "grey"
 , position = TopW L 90
 , commands = [ Run Weather "EHAM" ["-t"," AMS:<tempC>C","-L","15","-H","25","--normal","green","--high","red","--low","lightblue"] 36000
