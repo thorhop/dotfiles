@@ -63,6 +63,7 @@ let linPack = pkgs.linuxPackages_aristid; in
   fileSystems."/boot" = { label = "euphemus-boot"; };
   fileSystems."/home" = { label = "euphemus-home"; };
   fileSystems."/bulk" = { label = "patina"; };
+  fileSystems."/tmp" = { device = "none"; fsType = "tmpfs"; };
 
   swapDevices =
     [ # { device = "/dev/disk/by-label/swap"; }
@@ -183,7 +184,7 @@ let linPack = pkgs.linuxPackages_aristid; in
       # also: C++ environments
       (haskellPackages.ghcWithPackagesOld (self : with self;
         [ xmonad xmonadContrib xmonadExtras
-          haskellPlatform pipes criterion either cryptohash ] ))
+          haskellPlatform pipes criterion either cryptohash lens ] ))
       gnome.GConf
       gnucash
       skype
