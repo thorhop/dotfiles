@@ -17,6 +17,7 @@ let linPack = pkgs.linuxPackages_aristid; in
       ../common/packages/documentation.nix
       ../common/packages/version-control.nix
       ../common/packages/media.nix
+      ../common/virt/vbox.nix
     ];
 
   boot.initrd.kernelModules =
@@ -82,7 +83,7 @@ let linPack = pkgs.linuxPackages_aristid; in
 
   # List services that you want to enable:
 
-  services.openssh = { enable = true; };
+  services.openssh = { enable = true; passwordAuthentication = false; };
 
   services.udisks2 = { enable = true; };
 
@@ -219,7 +220,14 @@ let linPack = pkgs.linuxPackages_aristid; in
       llvm
       gdb
       gcc
+      nixops
     ];
 
   environment.pathsToLink = ["/share/doc" "/etc/gconf"];
+
+  security.sudo.configFile = ''
+    # %wheel ALL=(ALL) NOPASSWD:shutdown
+    '';
+
+  users.primaryUser = "aristid";
 }
