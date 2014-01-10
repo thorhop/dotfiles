@@ -185,7 +185,7 @@ let linPack = pkgs.linuxPackages_aristid; in
       # also: C++ environments
       (haskellPackages.ghcWithPackagesOld (self : with self;
         [ xmonad xmonadContrib xmonadExtras
-          haskellPlatform pipes criterion either cryptohash lens ] ))
+          haskellPlatform pipes criterion either cryptohash lens cipherAes base64Bytestring ] ))
       gnome.GConf
       gnucash
       skype
@@ -220,7 +220,8 @@ let linPack = pkgs.linuxPackages_aristid; in
       llvm
       gdb
       gcc
-      nixops
+      # nixops
+      texLiveFull
     ];
 
   environment.pathsToLink = ["/share/doc" "/etc/gconf"];
