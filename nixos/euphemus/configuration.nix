@@ -218,7 +218,7 @@ let linPack = pkgs.linuxPackages_aristid; in
       nmap
       iptables
       graphviz
-      #linPack.perf
+      linPack.perf
       pythonFull
       fio
       llvm
