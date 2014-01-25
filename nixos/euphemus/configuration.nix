@@ -114,12 +114,9 @@ let linPack = pkgs.linuxPackages_aristid; in
       drivers = with pkgs; [ hplip ghostscript gutenprint cups_pdf_filter ];
     };
 
-  # Enable the X11 windowing system.
   services.xserver =
     {
       enable = true;
-      videoDrivers = [ "nvidia" "fbdev" ];
-      driSupport32Bit = true;
       layout = "us";
       xkbVariant = "altgr-intl";
       xkbOptions = "eurosign:e, compose:menu";
@@ -133,6 +130,12 @@ let linPack = pkgs.linuxPackages_aristid; in
           xterm.enable = false;
           default = "none";
         };
+    };
+
+  services.mesa =
+    {
+      videoDrivers = [ "nvidia" "fbdev" ];
+      driSupport32Bit = true;
     };
 
   services.dbus.packages = [ pkgs.gnome.GConf ];
@@ -185,7 +188,8 @@ let linPack = pkgs.linuxPackages_aristid; in
       # also: C++ environments
       (haskellPackages.ghcWithPackagesOld (self : with self;
         [ xmonad xmonadContrib xmonadExtras
-          haskellPlatform pipes criterion either cryptohash lens cipherAes base64Bytestring ] ))
+          haskellPlatform pipes pipesParse criterion either cryptohash lens cipherAes base64Bytestring
+          binary dataBinaryIeee754 ] ))
       gnome.GConf
       gnucash
       skype
@@ -193,7 +197,7 @@ let linPack = pkgs.linuxPackages_aristid; in
       unzip
       ncdu
       ncftp
-      libreoffice
+      # libreoffice
       hplip
       xsane
       rsnapshot
@@ -203,7 +207,7 @@ let linPack = pkgs.linuxPackages_aristid; in
       kde4.kcachegrind
       anki
       darcs
-      R
+      #R
       coq
       ctags
       imagemagick
@@ -214,7 +218,7 @@ let linPack = pkgs.linuxPackages_aristid; in
       nmap
       iptables
       graphviz
-      linPack.perf
+      #linPack.perf
       pythonFull
       fio
       llvm
