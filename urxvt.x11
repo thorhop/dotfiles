@@ -1,3 +1,4 @@
+URxvt.loginShell: 1
 URxvt.font: xft:DejaVu Sans Mono:size=9
 URxvt.foreground: white
 URxvt.background: black
