@@ -138,6 +138,13 @@ let linPack = pkgs.linuxPackages_aristid; in
       driSupport32Bit = true;
     };
 
+  services.redshift =
+    {
+      enable = true;
+      latitude = "52.3";
+      longitude = "4.9";
+    };
+
   services.dbus.packages = [ pkgs.gnome.GConf ];
 
   services.upower = { enable = true; };
@@ -207,7 +214,7 @@ let linPack = pkgs.linuxPackages_aristid; in
       kde4.kcachegrind
       anki
       darcs
-      #R
+      R
       coq
       ctags
       imagemagick
