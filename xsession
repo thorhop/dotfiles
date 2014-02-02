@@ -10,6 +10,8 @@ xrdb -merge $DOTFILES/urxvt.x11
 xsetroot -solid midnightblue
 xsetroot -cursor_name left_ptr
 
+redshift -l 52.3:4.9 &
+
 pa-applet&
 
 # icon tray
