@@ -59,6 +59,7 @@ myConfig = defaultConfig
               , ("M-j", focusDown)
               , ("M-k", focusUp)
               , ("M-m", focusMaster)
+              , ("M-/", spawn "amixer set Master toggle")
               ]
 
 
