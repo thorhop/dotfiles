@@ -8,12 +8,12 @@ let sshKeyFiles = [ ../../ssh/mba_rsa.pub
 {
   users.extraUsers = { root = { openssh.authorizedKeys.keyFiles = sshKeyFiles ++ [ ../../ssh/euphemus_root.pub ]; };
                        aristid = { createUser = true;
+                                   uid = 1000;
                                    createHome = true;
                                    description = "Aristid Breitkreuz";
                                    group = "users";
                                    extraGroups = [ "wheel" ];
                                    home = "/home/aristid";
-                                   isSystemUser = false;
                                    useDefaultShell = true;
                                    openssh.authorizedKeys.keyFiles = sshKeyFiles;
                                  };
