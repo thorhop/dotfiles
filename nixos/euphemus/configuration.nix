@@ -90,9 +90,39 @@ let linPack = pkgs.linuxPackages_aristid; in
   services.locate = { enable = true; };
 
   services.rsnapshot =
+    let pgBackup = pkgs.writeScript "pg_backup.sh" ''
+    #!${pkgs.bash}/bin/bash
+    umask 0077
+    ${pkgs.su}/bin/su -s ${pkgs.bash}/bin/bash postgres -c '${pkgs.postgresql92}/bin/pg_dumpall -w -U postgres' | xz >pg_dump.sql.xz
+    ${pkgs.coreutils}/bin/chmod 600 pg_dump.sql.xz
+    '';
+    in
     {
       enable = true;
-      extraConfig = builtins.readFile ./rsnapshot.conf;
+      extraConfig = ''
+snapshot_root	/bulk/snapshots/rsnapshot/
+no_create_root	1
+
+retain	hourly	24
+retain	daily	7
+retain	weekly	4
+retain	monthly	240
+
+logfile	/var/log/rsnapshot
+
+sync_first	1
+
+backup	/home/		localhost/
+backup	/etc/		localhost/
+backup_script	${pgBackup}	localhost/postgres/
+
+# pluto
+backup	root@pluto.aristid.net:/home/	pluto/	ssh_args=-i /root/keys/id_backup
+
+# hermit
+#backup	root@79.125.21.59:/home/	hermit/	ssh_args=-p 22023
+#backup	root@79.125.21.59:/mnt/irc-vol/	hermit/	ssh_args=-p 22023
+      '';
       cronIntervals = { sync = "10 * * * *";
                         hourly = "20 * * * *";
                         daily = "50 21 * * *";
@@ -148,6 +178,11 @@ let linPack = pkgs.linuxPackages_aristid; in
     SUBSYSTEM=="usb", ATTR{idVendor}=="04e8", MODE="0666", GROUP="users"
     SUBSYSTEM=="usb", ATTR{idVendor}=="1004", MODE="0666", GROUP="users"
     '';
+
+  services.postgresql = {
+    enable = true;
+    package = pkgs.postgresql92;
+  };
 
   fonts =
     {
