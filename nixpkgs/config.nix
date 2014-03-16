@@ -1,6 +1,6 @@
 pkgs : {
   vim = { ruby = false; };
-  chromium = { enableGoogleTalkPlugin = true; };
+  chromium = { enableAdobeFlash = true; enableGoogleTalkPlugin = true; };
   bup.par2Support = true;
   #pulseaudio = true;
 
@@ -62,7 +62,7 @@ pkgs : {
 
     linuxPackages_aristid = pkgs.linuxPackagesFor linux_aristid linuxPackages_aristid;
 
-    linux_aristid = pkgs.linux_3_12.override {
+    linux_aristid = pkgs.linux_3_13.override {
       extraConfig = ''
       '';
       kernelPatches = [

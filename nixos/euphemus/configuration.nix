@@ -47,7 +47,7 @@ let linPack = pkgs.linuxPackages_aristid; in
       enable = true;
       version = 2;
       device = "/dev/sda";
-      memtest86 = true;
+      memtest86 = { enable = true; };
     };
 
   boot.kernelPackages = linPack;
@@ -132,7 +132,7 @@ let linPack = pkgs.linuxPackages_aristid; in
         };
     };
 
-  services.mesa =
+  hardware.opengl =
     {
       videoDrivers = [ "nvidia" "fbdev" ];
       driSupport32Bit = true;
