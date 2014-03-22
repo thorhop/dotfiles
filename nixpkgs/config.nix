@@ -66,7 +66,7 @@ pkgs : {
       extraConfig = ''
       '';
       kernelPatches = [
-        pkgs.kernelPatches.sec_perm_2_6_24
+        # pkgs.kernelPatches.sec_perm_2_6_24
         # logitech_hid_dj_fix
         btusb_bcm_belkin
       ];
