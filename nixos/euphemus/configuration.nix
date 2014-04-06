@@ -193,7 +193,10 @@ backup	root@pluto.aristid.net:/home/	pluto/	ssh_args=-i /root/keys/id_backup
 
   programs.bash.enableCompletion = true;
 
-  environment.systemPackages = with pkgs;
+  environment.systemPackages =
+    with pkgs;
+    let hask = haskellPackages.override { prefFun = self : haskell.ghc763Prefs self // { binary = self.binary_0_7_1_0; }; };
+    in
     [
       lm_sensors
       dmidecode
@@ -221,10 +224,10 @@ backup	root@pluto.aristid.net:/home/	pluto/	ssh_args=-i /root/keys/id_backup
       gnumake
       # TODO: make proper haskell environments
       # also: C++ environments
-      (haskellPackages.ghcWithPackagesOld (self : with self;
+      (hask.ghcWithPackagesOld (self : with self;
         [ xmonad xmonadContrib xmonadExtras
-          haskellPlatform pipes pipesParse criterion either cryptohash lens cipherAes base64Bytestring
-          binary dataBinaryIeee754 ] ))
+          haskellPlatform pipes pipesParse pipesBytestring criterion either cryptohash lens cipherAes base64Bytestring
+          binary dataBinaryIeee754 smallcheck ] ))
       gnome.GConf
       gnucash
       skype
