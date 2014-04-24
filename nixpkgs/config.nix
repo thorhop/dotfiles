@@ -1,6 +1,9 @@
 pkgs : {
+  allowUnfree = true;
+
   vim = { ruby = false; };
   chromium = { enableAdobeFlash = true; enableGoogleTalkPlugin = true; };
+  firefox = { enableAdobeFlash = true; };
   bup.par2Support = true;
   #pulseaudio = true;
 
